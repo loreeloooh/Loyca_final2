@@ -2157,9 +2157,11 @@ body {
 
 .services .section-title {
     position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
+    display: block;
+    left: auto;
+    transform: none;
+    margin: 0 auto 2rem auto;
+    text-align: center;
     padding: 0.7rem 3.5rem;
     background: var(--gold);
     color: #111;
