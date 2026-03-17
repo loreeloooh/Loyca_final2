@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Loyca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .linktree-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-pink), var(--primary-green));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .linktree-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .linktree-profile {
+            margin-bottom: 3rem;
+        }
+
+        .linktree-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .linktree-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .linktree-bio {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .linktree-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        .linktree-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .linktree-link {
+            background: white;
+            border-radius: 15px;
+            padding: 1.2rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .linktree-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .linktree-link-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .linktree-link-arrow {
+            font-size: 1.2rem;
+            opacity: 0.6;
+        }
+
+        .linktree-link.primary {
+            background: var(--primary-pink);
+            color: white;
+        }
+
+        .linktree-link.primary:hover {
+            background: var(--secondary-pink);
+        }
+
+        .linktree-link.gold {
+            background: var(--gold);
+            color: #111;
+        }
+
+        .linktree-link.gold:hover {
+            background: #c4a028;
+        }
+
+        .linktree-link.green {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .linktree-link.green:hover {
+            background: #9da094;
+        }
+
+        .linktree-footer {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .linktree-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .linktree-social a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .linktree-social a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .linktree-copyright {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+            .linktree-container {
+                padding: 1rem;
+            }
+
+            .linktree-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .linktree-name {
+                font-size: 1.8rem;
+            }
+
+            .linktree-bio {
+                font-size: 1rem;
+            }
+
+            .linktree-link {
+                padding: 1rem 1.2rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="linktree-page">
+        <div class="linktree-container">
+            <div class="linktree-profile">
+                <div class="linktree-avatar">L</div>
+                <h1 class="linktree-name">Loyca</h1>
+                <p class="linktree-bio">Creatividad sin límites</p>
+                <p class="linktree-subtitle">Marketing Digital • Desarrollo Web • Análisis de Datos</p>
+            </div>
+
+            <div class="linktree-links">
+                <a href="https://instagram.com/loyca" target="_blank" class="linktree-link primary">
+                    <div style="display: flex; align-items: center;">
+                        <img src="../images/plataformas/instagram.png" alt="Instagram" class="linktree-link-icon" style="width: 24px; height: 24px; margin-right: 1rem;">
+                        <span>Instagram</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="https://facebook.com/loyca" target="_blank" class="linktree-link" style="background: #1877f2; color: white;">
+                    <div style="display: flex; align-items: center;">
+                        <img src="../images/plataformas/facebook.png" alt="Facebook" class="linktree-link-icon" style="width: 24px; height: 24px; margin-right: 1rem;">
+                        <span>Facebook</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="https://tiktok.com/@loyca" target="_blank" class="linktree-link" style="background: #000000; color: white;">
+                    <div style="display: flex; align-items: center;">
+                        <img src="../images/plataformas/tiktok.png" alt="TikTok" class="linktree-link-icon" style="width: 24px; height: 24px; margin-right: 1rem;">
+                        <span>TikTok</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="https://linkedin.com/company/loyca" target="_blank" class="linktree-link" style="background: #0077b5; color: white;">
+                    <div style="display: flex; align-items: center;">
+                        <img src="../images/plataformas/linkedin.png" alt="LinkedIn" class="linktree-link-icon" style="width: 24px; height: 24px; margin-right: 1rem;">
+                        <span>LinkedIn</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="https://wa.me/5493413138290" target="_blank" class="linktree-link green">
+                    <div style="display: flex; align-items: center;">
+                        <span class="linktree-link-icon" style="margin-right: 1rem;">💬</span>
+                        <span>WhatsApp</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="index.html" class="linktree-link">
+                    <div style="display: flex; align-items: center;">
+                        <span class="linktree-link-icon">🏠</span>
+                        <span>Volver al Inicio</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+            </div>
+
+            <div class="linktree-footer">
+                <div class="linktree-social">
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">💼</a>
+                    <a href="#" title="Twitter">🐦</a>
+                </div>
+                <p class="linktree-copyright">© 2024 Loyca - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="loyca-chatbot" id="loycaChatbot" aria-live="polite">
+        <button class="chatbot-fab" id="chatbotFab" aria-label="Abrir chat">
+            <span class="chatbot-fab__icon">💬</span>
+        </button>
+
+        <div class="chatbot-window" id="chatbotWindow" role="dialog" aria-modal="false" aria-label="Asistente virtual Loyca">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <div class="chatbot-title__avatar">🤖</div>
+                    <div class="chatbot-title__info">
+                        <div class="chatbot-title__name">Loyca</div>
+                        <div class="chatbot-title__status">En línea</div>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose" aria-label="Cerrar chat">×</button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages"></div>
+            <div class="chatbot-quick" id="chatbotQuick"></div>
+
+            <form class="chatbot-input" id="chatbotForm" autocomplete="off">
+                <input id="chatbotText" type="text" placeholder="Escribí un mensaje..." />
+                <button type="submit">➤</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../chatbot.js"></script>
+</body>
+</html>

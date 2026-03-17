@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicidad y Redes - Loyca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library - Animaciones al hacer scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Scroll Particles -->
+    <div class="scroll-particles" id="scrollParticles"></div>
+    
+    <!-- Navigation Timeline -->
+    <nav class="nav-timeline" id="navTimeline">
+        <div class="timeline-dot active" data-section="Inicio" data-target="#home"></div>
+        <div class="timeline-dot" data-section="Sobre" data-target="#about"></div>
+        <div class="timeline-dot" data-section="Servicios" data-target="#services"></div>
+        <div class="timeline-dot" data-section="Formulario" data-target="#social-media-form"></div>
+    </nav>
+    
+    <!-- Partículas de fondo -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="../index.html" class="logo-link" aria-label="Loyca - Inicio">
+                        <h1>Loyca</h1>
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="publicidad-redes.html" class="active">Publicidad</a></li>
+                        <li><a href="desarrollo-web.html">Desarrollo Web</a></li>
+                        <li><a href="ciencia-datos.html">Ciencia de Datos</a></li>
+                        <li><a href="redes.html">Redes</a></li>
+                    </ul>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <div class="slide-image" style="background-image: url('../images/backgrounds/slide1.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Publicidad y Redes Sociales que Transforman</h2>
+                            <p>Estrategias digitales que conectan tu marca con el público ideal y generan resultados medibles</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-image" style="background-image: url('../images/backgrounds/slide2.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Publicidad y Redes Sociales que Transforman</h2>
+                            <p>Campañas publicitarias segmentadas y gestión profesional de redes sociales</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-image" style="background-image: url('../images/backgrounds/slide3.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Publicidad y Redes Sociales que Transforman</h2>
+                            <p>Construimos communities auténticas y maximizamos tu retorno de inversión</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">‹</button>
+                    <button class="carousel-btn next-btn" onclick="changeSlide(1)">›</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide(0)"></span>
+                    <span class="indicator" onclick="goToSlide(1)"></span>
+                    <span class="indicator" onclick="goToSlide(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title scroll-reveal">Publicidad y Redes Sociales</h2>
+                        <p class="scroll-reveal">En Loyca transformamos tu presencia digital con estrategias de redes sociales y publicidad que generan impacto real. Nos especializamos en crear contenido que resuona con tu audiencia y campañas que convierten seguidores en clientes leales.</p>
+                        <p class="scroll-reveal">Nuestro enfoque data-driven nos permite optimizar cada campaña para maximizar tu ROI, mientras construimos una comunidad auténtica alrededor de tu marca.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                
+                <!-- Texto introductorio -->
+                <div class="services-intro">
+                    <p>Estrategias digitales que impulsan resultados reales para tu marca</p>
+                </div>
+                
+                <div class="services-list-section">
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Gestión de Redes Sociales</h3>
+                            <p>Administración estratégica de tus perfiles sociales con contenido planificado y análisis de métricas para maximizar el engagement.</p>
+                            <ul class="service-features">
+                                <li>Calendarios de contenido</li>
+                                <li>Monitoreo de métricas</li>
+                                <li>Community management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Creación de Contenido</h3>
+                            <p>Producción de contenido visual y audiovisual profesional adaptado a cada plataforma para aumentar alcance y viralidad.</p>
+                            <ul class="service-features">
+                                <li>Fotografía profesional</li>
+                                <li>Edición de video y reels</li>
+                                <li>Diseño gráfico</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Asistente Virtual</h3>
+                            <p>Atención automatizada 24/7 con inteligencia artificial para gestionar consultas, agendar citas y mejorar la experiencia del cliente.</p>
+                            <ul class="service-features">
+                                <li>Respuesta instantánea</li>
+                                <li>Gestión de citas</li>
+                                <li>Soporte multicanal</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Chatbots Inteligentes</h3>
+                            <p>Sistemas conversacionales avanzados con NLP para entender y responder automáticamente las necesidades de tus clientes en tiempo real.</p>
+                            <ul class="service-features">
+                                <li>Procesamiento de lenguaje natural</li>
+                                <li>Integración con WhatsApp</li>
+                                <li>Analytics de conversación</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Publicidad Digital</h3>
+                            <p>Campañas publicitarias segmentadas en Google Ads, Meta Ads y TikTok para llegar a tu audiencia ideal y generar conversiones.</p>
+                            <ul class="service-features">
+                                <li>Targeting avanzado</li>
+                                <li>Optimización de ROI</li>
+                                <li>A/B testing</li>
+                            </ul>
+                            
+                            <!-- Certificados Google Ads -->
+                            <div class="certificates-section">
+                                <h4>Certificaciones Google Ads</h4>
+                                <div class="certificates-grid">
+                                    <div class="certificate-card">
+                                        <div class="certificate-flip-card">
+                                            <div class="certificate-front">
+                                                <img src="../frontend/images/certificados/GOOGLE_ADS_SERCH_CERTIFIED.png" alt="Google Ads Search Certification">
+                                            </div>
+                                            <div class="certificate-back">
+                                                <h5>Google Ads Search</h5>
+                                                <p>Certificación en publicidad de búsqueda en Google Ads</p>
+                                                <img src="../frontend/images/certificados/GOOGLE_ADS_SERCH_CERTIFIED_QR.png" alt="QR Google Ads Search" class="qr-code">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="certificate-card">
+                                        <div class="certificate-flip-card">
+                                            <div class="certificate-front">
+                                                <img src="../frontend/images/certificados/GOOGLE_ADS_DISPLAY_CERTIFIED.png" alt="Google Ads Display Certification">
+                                            </div>
+                                            <div class="certificate-back">
+                                                <h5>Google Ads Display</h5>
+                                                <p>Certificación en publicidad gráfica y banners</p>
+                                                <img src="../frontend/images/certificados/GOOGLE_ADS_DISPLAY_CERTIFIED_QR.png" alt="QR Google Ads Display" class="qr-code">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="certificate-card">
+                                        <div class="certificate-flip-card">
+                                            <div class="certificate-front">
+                                                <img src="../frontend/images/certificados/GOOGLE_ADS_MEASUREMENT_CERTIFIED.png" alt="Google Ads Measurement Certification">
+                                            </div>
+                                            <div class="certificate-back">
+                                                <h5>Google Ads Measurement</h5>
+                                                <p>Certificación en medición y analytics de campañas</p>
+                                                <img src="../frontend/images/certificados/GOOGLE ADS MEASUREMENT CERTIFIED_QR.png" alt="QR Google Ads Measurement" class="qr-code">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="certificate-card">
+                                        <div class="certificate-flip-card">
+                                            <div class="certificate-front">
+                                                <img src="../frontend/images/certificados/GOOGLE_ADS_ANALITYCS_CERTIFIED.png" alt="Google Analytics Certification">
+                                            </div>
+                                            <div class="certificate-back">
+                                                <h5>Google Analytics</h5>
+                                                <p>Certificación en análisis de datos y métricas</p>
+                                                <img src="../frontend/images/certificados/GOOGLE_ADS_ANALITYCS_CERTIFIED_QR.png" alt="QR Google Analytics" class="qr-code">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Publicidad en Medios Tradicionales</h3>
+                            <p>Estrategias publicitarias integrales en medios convencionales como TV, radio, prensa y vallas publicitarias para maximizar tu alcance.</p>
+                            <ul class="service-features">
+                                <li>Pautas TV y radio</li>
+                                <li>Publicidad en prensa escrita</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Formulario de Servicios de Redes Sociales -->
+        <section id="social-media-form" class="social-media-form-section">
+            <div class="container">
+                <h2 class="section-title">Impulsa tu Marca en Redes Sociales</h2>
+                <p class="social-form-intro">Completa este formulario y nuestro equipo creará una estrategia personalizada para que tus redes sociales generen resultados reales.</p>
+                
+                <form id="socialMediaForm" class="social-media-form">
+                    <!-- Datos básicos -->
+                    <div class="form-section">
+                        <h3>📋 Información de Contacto</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="sm_name">Nombre y apellido *</label>
+                                <input type="text" id="sm_name" name="sm_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sm_email">Email *</label>
+                                <input type="email" id="sm_email" name="sm_email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sm_phone">Número de contacto *</label>
+                                <input type="tel" id="sm_phone" name="sm_phone" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="sm_business">Razón social / Nombre de la empresa *</label>
+                                <input type="text" id="sm_business" name="sm_business" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información del negocio -->
+                    <div class="form-section">
+                        <h3>🏢 Información del Negocio</h3>
+                        <div class="form-group">
+                            <label for="sm_activity">¿A qué se dedica tu empresa / negocio? *</label>
+                            <textarea id="sm_activity" name="sm_activity" rows="3" placeholder="Describe brevemente tu actividad principal..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="sm_location">¿En qué ciudad o país operas principalmente? *</label>
+                            <input type="text" id="sm_location" name="sm_location" placeholder="Ej: Buenos Aires, Argentina" required>
+                        </div>
+                        <div class="form-group">
+                            <label>¿Tu negocio vende productos, servicios o ambos? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_business_type" value="Productos" required>
+                                    <span class="radio-custom"></span>
+                                    Productos
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_business_type" value="Servicios" required>
+                                    <span class="radio-custom"></span>
+                                    Servicios
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_business_type" value="Ambos" required>
+                                    <span class="radio-custom"></span>
+                                    Ambos
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Branding / Rebranding -->
+                    <div class="form-section">
+                        <h3>🎨 Branding / Rebranding</h3>
+                        <div class="form-group">
+                            <label>¿Tu empresa ya tiene nombre definido? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_name" value="Sí" required>
+                                    <span class="radio-custom"></span>
+                                    Sí
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_name" value="No" required>
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_name" value="Estoy buscando ayuda para definirlo" required>
+                                    <span class="radio-custom"></span>
+                                    Estoy buscando ayuda para definirlo
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sm_current_name">Nombre actual de la empresa o marca:</label>
+                            <input type="text" id="sm_current_name" name="sm_current_name" placeholder="Ej: Mi Empresa SRL">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>¿Tu empresa tiene logo actualmente? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_logo" value="Sí" required>
+                                    <span class="radio-custom"></span>
+                                    Sí
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_logo" value="No" required>
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="conditional-section" id="logoOptionsSection">
+                            <div class="form-group">
+                                <label>Si tienes logo, ¿te gustaría mantenerlo o hacer un rebranding?</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_logo_preference" value="Mantener el logo actual">
+                                        <span class="radio-custom"></span>
+                                        Mantener el logo actual
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_logo_preference" value="Rediseñar el logo">
+                                        <span class="radio-custom"></span>
+                                        Rediseñar el logo
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_logo_preference" value="Hacer rebranding completo">
+                                        <span class="radio-custom"></span>
+                                        Hacer rebranding completo
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>¿Tienes manual de marca o identidad visual? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_brand_manual" value="Sí" required>
+                                    <span class="radio-custom"></span>
+                                    Sí
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_brand_manual" value="No" required>
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de Clientes -->
+                    <div class="form-section">
+                        <h3>👥 Información de Clientes</h3>
+                        <div class="form-group">
+                            <label>¿Tus clientes son principalmente? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_client_type" value="Empresas (B2B)" required>
+                                    <span class="radio-custom"></span>
+                                    Empresas (B2B)
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_client_type" value="Consumidores finales (B2C)" required>
+                                    <span class="radio-custom"></span>
+                                    Consumidores finales (B2C)
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_client_type" value="Ambos" required>
+                                    <span class="radio-custom"></span>
+                                    Ambos
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de herramientas web -->
+                    <div class="form-section">
+                        <h3>🌐 Información de Herramientas Web</h3>
+                        <div class="form-group">
+                            <label>¿Ya tienes un sitio web actualmente? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_website" value="Sí" required>
+                                    <span class="radio-custom"></span>
+                                    Sí
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_website" value="No" required>
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="conditional-section" id="websiteDomainSection">
+                            <div class="form-group">
+                                <label for="sm_website_domain">Si es sí, escribe tu dominio web:</label>
+                                <input type="url" id="sm_website_domain" name="sm_website_domain" placeholder="Ej: www.miempresa.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Presencia en redes sociales -->
+                    <div class="form-section">
+                        <h3>📱 Presencia en Redes Sociales</h3>
+                        <div class="form-group">
+                            <label>¿Actualmente tienes redes sociales activas? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_social" value="Sí" required>
+                                    <span class="radio-custom"></span>
+                                    Sí
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_has_social" value="No" required>
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="conditional-section" id="socialPlatformsSection">
+                            <div class="form-group">
+                                <label>Si la respuesta es sí, ¿cuáles?</label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="sm_platforms" value="Instagram">
+                                        <span class="checkbox-custom"></span>
+                                        Instagram
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="sm_platforms" value="Facebook">
+                                        <span class="checkbox-custom"></span>
+                                        Facebook
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="sm_platforms" value="TikTok">
+                                        <span class="checkbox-custom"></span>
+                                        TikTok
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="sm_platforms" value="LinkedIn">
+                                        <span class="checkbox-custom"></span>
+                                        LinkedIn
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="sm_platforms" value="YouTube">
+                                        <span class="checkbox-custom"></span>
+                                        YouTube
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="sm_platforms" value="X (Twitter)">
+                                        <span class="checkbox-custom"></span>
+                                        X (Twitter)
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="sm_platforms" value="Pinterest">
+                                        <span class="checkbox-custom"></span>
+                                        Pinterest
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="sm_platforms" value="Otras">
+                                        <span class="checkbox-custom"></span>
+                                        Otras:
+                                    </label>
+                                </div>
+                                <input type="text" id="sm_other_platforms" name="sm_other_platforms" placeholder="Especifica otras plataformas..." style="margin-top: 10px; display: none;">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="sm_social_links">Usuario o link de tus redes sociales:</label>
+                                <textarea id="sm_social_links" name="sm_social_links" rows="3" placeholder="Ej: @tuempresa, https://instagram.com/tuempresa..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objetivos en redes sociales -->
+                    <div class="form-section">
+                        <h3>🎯 Objetivos en Redes Sociales</h3>
+                        <div class="form-group">
+                            <label>¿Cuál es el objetivo principal de tu Instagram / redes sociales? (puede seleccionar varias opciones)</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Posicionamiento de marca">
+                                    <span class="checkbox-custom"></span>
+                                    Posicionamiento de marca
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Generar ventas">
+                                    <span class="checkbox-custom"></span>
+                                    Generar ventas
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Conseguir nuevos clientes">
+                                    <span class="checkbox-custom"></span>
+                                    Conseguir nuevos clientes
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Reservas / turnos">
+                                    <span class="checkbox-custom"></span>
+                                    Reservas / turnos
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Generar comunidad">
+                                    <span class="checkbox-custom"></span>
+                                    Generar comunidad
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Educar a la audiencia">
+                                    <span class="checkbox-custom"></span>
+                                    Educar a la audiencia
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Mostrar productos / servicios">
+                                    <span class="checkbox-custom"></span>
+                                    Mostrar productos / servicios
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Atención al cliente">
+                                    <span class="checkbox-custom"></span>
+                                    Atención al cliente
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Aumentar seguidores">
+                                    <span class="checkbox-custom"></span>
+                                    Aumentar seguidores
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Lanzar productos nuevos">
+                                    <span class="checkbox-custom"></span>
+                                    Lanzar productos nuevos
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Derivar tráfico a web o WhatsApp">
+                                    <span class="checkbox-custom"></span>
+                                    Derivar tráfico a web o WhatsApp
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Construir marca personal">
+                                    <span class="checkbox-custom"></span>
+                                    Construir marca personal
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_objectives" value="Otro">
+                                    <span class="checkbox-custom"></span>
+                                    Otro:
+                                </label>
+                            </div>
+                            <input type="text" id="sm_other_objective" name="sm_other_objective" placeholder="Especifica otro objetivo..." style="margin-top: 10px; display: none;">
+                        </div>
+                    </div>
+
+                    <!-- Contenido -->
+                    <div class="form-section">
+                        <h3>📸 Contenido</h3>
+                        <div class="form-group">
+                            <label>¿Qué tipo de contenido te interesa publicar?</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_content_types" value="Reels">
+                                    <span class="checkbox-custom"></span>
+                                    Reels
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_content_types" value="Carruseles">
+                                    <span class="checkbox-custom"></span>
+                                    Carruseles
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_content_types" value="Historias">
+                                    <span class="checkbox-custom"></span>
+                                    Historias
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_content_types" value="Videos">
+                                    <span class="checkbox-custom"></span>
+                                    Videos
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_content_types" value="Contenido educativo">
+                                    <span class="checkbox-custom"></span>
+                                    Contenido educativo
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_content_types" value="Promociones / ofertas">
+                                    <span class="checkbox-custom"></span>
+                                    Promociones / ofertas
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_content_types" value="Testimonios de clientes">
+                                    <span class="checkbox-custom"></span>
+                                    Testimonios de clientes
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_content_types" value="Antes y después">
+                                    <span class="checkbox-custom"></span>
+                                    Antes y después
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="sm_content_types" value="Contenido de marca personal">
+                                    <span class="checkbox-custom"></span>
+                                    Contenido de marca personal
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Publicidad en redes -->
+                    <div class="form-section">
+                        <h3>💰 Publicidad en Redes</h3>
+                        <div class="form-group">
+                            <label>¿Te interesa invertir en publicidad (Ads) en redes sociales? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_ads_interest" value="Sí" required>
+                                    <span class="radio-custom"></span>
+                                    Sí
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_ads_interest" value="No" required>
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_ads_interest" value="Tal vez, quiero más información" required>
+                                    <span class="radio-custom"></span>
+                                    Tal vez, quiero más información
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="conditional-section" id="adsBudgetSection">
+                            <div class="form-group">
+                                <label>Si la respuesta es sí, ¿cuánto te gustaría invertir aproximadamente por mes?</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_ads_budget" value="Menos de $100 USD">
+                                        <span class="radio-custom"></span>
+                                        Menos de $100 USD
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_ads_budget" value="$100 – $300 USD">
+                                        <span class="radio-custom"></span>
+                                        $100 – $300 USD
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_ads_budget" value="$300 – $700 USD">
+                                        <span class="radio-custom"></span>
+                                        $300 – $700 USD
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_ads_budget" value="$700 – $1500 USD">
+                                        <span class="radio-custom"></span>
+                                        $700 – $1500 USD
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_ads_budget" value="Más de $1500 USD">
+                                        <span class="radio-custom"></span>
+                                        Más de $1500 USD
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Competencia y referencias -->
+                    <div class="form-section">
+                        <h3>🔍 Competencia y Referencias</h3>
+                        <div class="form-group">
+                            <label for="sm_competitors">¿Tienes cuentas de referencia o competidores que te gusten? (Puedes compartir links)</label>
+                            <textarea id="sm_competitors" name="sm_competitors" rows="3" placeholder="Ej: @competidor1, https://instagram.com/referencia..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Información adicional -->
+                    <div class="form-section">
+                        <h3>💬 Información Adicional</h3>
+                        <div class="form-group">
+                            <label for="sm_additional">¿Hay algo más que te gustaría contarnos sobre tu negocio o tus objetivos?</label>
+                            <textarea id="sm_additional" name="sm_additional" rows="4" placeholder="Cuéntanos cualquier información adicional que consideres relevante..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <span class="btn-text">Enviar Solicitud de Estrategia</span>
+                            <span class="btn-loader" style="display: none;">Enviando...</span>
+                        </button>
+                        <div class="form-status" id="smFormStatus"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>loyca</h3>
+                    <p>Creatividad sin límites</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="#services">Social Media Management</a></li>
+                            <li><a href="#services">Facebook Advertising</a></li>
+                            <li><a href="#services">Instagram Marketing</a></li>
+                            <li><a href="#services">TikTok Marketing</a></li>
+                            <li><a href="#services">Content Creation</a></li>
+                            <li><a href="#services">Social Media Ads</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="../index.html">Inicio</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">📷</a>
+                        <a href="#">📘</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Loyca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="dashboard-script.js"></script>
+    
+    <!-- Services Dropdown Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggle = document.querySelector('.services-dropdown-toggle');
+            const dropdown = document.querySelector('.services-dropdown');
+            
+            if (dropdownToggle && dropdown) {
+                // Toggle dropdown al hacer click
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+                
+                // Cerrar dropdown al hacer click fuera
+                document.addEventListener('click', function(e) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+                
+                // Cerrar dropdown al hacer escape
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+    
+    <!-- EmailJS Initialization -->
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("M2mep0-FHqqCTurSz");
+        })();
+    </script>
+    
+    <!-- Social Media Form Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('socialMediaForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoader = submitBtn.querySelector('.btn-loader');
+            const formStatus = document.getElementById('smFormStatus');
+
+            // Manejar secciones condicionales
+            const hasSocialRadios = document.querySelectorAll('input[name="sm_has_social"]');
+            const socialPlatformsSection = document.getElementById('socialPlatformsSection');
+            
+            hasSocialRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    socialPlatformsSection.style.display = this.value === 'Sí' ? 'block' : 'none';
+                });
+            });
+            
+            // Manejar presupuesto de ads
+            const adsInterestRadios = document.querySelectorAll('input[name="sm_ads_interest"]');
+            const adsBudgetSection = document.getElementById('adsBudgetSection');
+            
+            adsInterestRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    adsBudgetSection.style.display = this.value === 'Sí' ? 'block' : 'none';
+                });
+            });
+            
+            // Manejar opciones de logo
+            const hasLogoRadios = document.querySelectorAll('input[name="sm_has_logo"]');
+            const logoOptionsSection = document.getElementById('logoOptionsSection');
+            
+            hasLogoRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    logoOptionsSection.style.display = this.value === 'Sí' ? 'block' : 'none';
+                });
+            });
+            
+            // Manejar sitio web
+            const hasWebsiteRadios = document.querySelectorAll('input[name="sm_has_website"]');
+            const websiteDomainSection = document.getElementById('websiteDomainSection');
+            
+            hasWebsiteRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    websiteDomainSection.style.display = this.value === 'Sí' ? 'block' : 'none';
+                });
+            });
+            
+            // Manejar checkbox de "Otras" plataformas
+            const otherPlatformsCheckbox = document.querySelector('input[name="sm_platforms"][value="Otras"]');
+            const otherPlatformsInput = document.getElementById('sm_other_platforms');
+            
+            otherPlatformsCheckbox.addEventListener('change', function() {
+                otherPlatformsInput.style.display = this.checked ? 'block' : 'none';
+            });
+            
+            // Manejar checkbox de "Otro" objetivo
+            const otherObjectiveCheckbox = document.querySelector('input[name="sm_objectives"][value="Otro"]');
+            const otherObjectiveInput = document.getElementById('sm_other_objective');
+            
+            otherObjectiveCheckbox.addEventListener('change', function() {
+                otherObjectiveInput.style.display = this.checked ? 'block' : 'none';
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validación básica
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('error');
+                    } else {
+                        field.classList.remove('error');
+                    }
+                });
+                
+                if (!isValid) {
+                    showStatus('Por favor completa todos los campos requeridos', 'error');
+                    return;
+                }
+                
+                // Mostrar estado de carga
+                submitBtn.disabled = true;
+                btnText.style.display = 'none';
+                btnLoader.style.display = 'inline';
+                showStatus('Enviando tu solicitud...', 'loading');
+                
+                // Recopilar datos de checkboxes
+                const platforms = Array.from(document.querySelectorAll('input[name="sm_platforms"]:checked'))
+                    .map(cb => cb.value)
+                    .filter(val => val !== 'Otras');
+                
+                if (otherPlatformsCheckbox.checked && otherPlatformsInput.value.trim()) {
+                    platforms.push(otherPlatformsInput.value.trim());
+                }
+                
+                const objectives = Array.from(document.querySelectorAll('input[name="sm_objectives"]:checked'))
+                    .map(cb => cb.value)
+                    .filter(val => val !== 'Otro');
+                
+                if (otherObjectiveCheckbox.checked && otherObjectiveInput.value.trim()) {
+                    objectives.push(otherObjectiveInput.value.trim());
+                }
+                
+                const contentTypes = Array.from(document.querySelectorAll('input[name="sm_content_types"]:checked'))
+                    .map(cb => cb.value);
+                
+                // Preparar datos para EmailJS
+                const templateParams = {
+                    name: document.getElementById('sm_name').value,
+                    email: document.getElementById('sm_email').value,
+                    phone: document.getElementById('sm_phone').value,
+                    business: document.getElementById('sm_business').value,
+                    activity: document.getElementById('sm_activity').value,
+                    location: document.getElementById('sm_location').value,
+                    business_type: document.querySelector('input[name="sm_business_type"]:checked').value,
+                    has_name: document.querySelector('input[name="sm_has_name"]:checked').value,
+                    current_name: document.getElementById('sm_current_name').value,
+                    has_logo: document.querySelector('input[name="sm_has_logo"]:checked').value,
+                    logo_preference: document.querySelector('input[name="sm_logo_preference"]:checked')?.value || 'No aplica',
+                    has_brand_manual: document.querySelector('input[name="sm_has_brand_manual"]:checked').value,
+                    client_type: document.querySelector('input[name="sm_client_type"]:checked').value,
+                    has_website: document.querySelector('input[name="sm_has_website"]:checked').value,
+                    website_domain: document.getElementById('sm_website_domain').value,
+                    has_social: document.querySelector('input[name="sm_has_social"]:checked').value,
+                    platforms: platforms.join(', ') || 'Ninguna',
+                    social_links: document.getElementById('sm_social_links').value,
+                    objectives: objectives.join(', ') || 'Ninguno',
+                    content_types: contentTypes.join(', ') || 'Ninguno',
+                    ads_interest: document.querySelector('input[name="sm_ads_interest"]:checked').value,
+                    ads_budget: document.querySelector('input[name="sm_ads_budget"]:checked')?.value || 'No aplica',
+                    competitors: document.getElementById('sm_competitors').value,
+                    additional: document.getElementById('sm_additional').value,
+                    time: new Date().toLocaleString('es-AR', { 
+                        timeZone: 'America/Argentina/Buenos_Aires',
+                        dateStyle: 'full',
+                        timeStyle: 'short'
+                    })
+                };
+                
+                // Enviar con EmailJS (usando mismo service pero podrías crear uno nuevo)
+                emailjs.send('service_dztv8jg', 'template_z48evio', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        showStatus('¡Solicitud enviada con éxito! Te contactaremos en las próximas 48 horas.', 'success');
+                        form.reset();
+                        
+                        // Resetear secciones condicionales
+                        socialPlatformsSection.style.display = 'none';
+                        adsBudgetSection.style.display = 'none';
+                        logoOptionsSection.style.display = 'none';
+                        websiteDomainSection.style.display = 'none';
+                        otherPlatformsInput.style.display = 'none';
+                        otherObjectiveInput.style.display = 'none';
+                        
+                        // Resetear botón después de 3 segundos
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            btnText.style.display = 'inline';
+                            btnLoader.style.display = 'none';
+                        }, 3000);
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        showStatus('Error al enviar. Por favor intenta nuevamente o contacta directamente a info@loyca.com', 'error');
+                        
+                        // Resetear botón
+                        submitBtn.disabled = false;
+                        btnText.style.display = 'inline';
+                        btnLoader.style.display = 'none';
+                    });
+            });
+            
+            function showStatus(message, type) {
+                formStatus.textContent = message;
+                formStatus.className = 'form-status ' + type;
+                formStatus.style.display = 'block';
+                
+                if (type === 'loading') {
+                    formStatus.style.color = '#d4af37';
+                } else if (type === 'success') {
+                    formStatus.style.color = '#4CAF50';
+                } else if (type === 'error') {
+                    formStatus.style.color = '#e45b7a';
+                }
+                
+                // Ocultar mensaje después de 5 segundos (excepto loading)
+                if (type !== 'loading') {
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                }
+            }
+            
+            // Remover clase error al escribir
+            form.querySelectorAll('input, textarea').forEach(field => {
+                field.addEventListener('input', function() {
+                    this.classList.remove('error');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
