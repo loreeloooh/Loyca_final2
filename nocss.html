@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyca - Social Media & Creative Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library - Animaciones al hacer scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- styles.css comentado temporalmente -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /* Estilo básico para probar */
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            background: #000; 
+            color: #fff; 
+            font-family: 'Poppins', sans-serif;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #fff; text-align: center; }
+        section { margin: 40px 0; padding: 20px; border: 1px solid #333; }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Scroll Particles -->
+    <div class="scroll-particles" id="scrollParticles"></div>
+    
+    <!-- Navigation Timeline -->
+    <nav class="nav-timeline" id="navTimeline">
+        <div class="timeline-dot active" data-section="Inicio" data-target="#home"></div>
+        <div class="timeline-dot" data-section="Quiénes Somos" data-target="#about"></div>
+        <div class="timeline-dot" data-section="Servicios" data-target="#services"></div>
+    </nav>
+    
+    <!-- Partículas de fondo -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Loader Épico - Partículas Explosivas + Glitch -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-black-screen">
+            <!-- Partículas de explosión -->
+            <div class="explosion-particles" id="explosionParticles"></div>
+            
+            <!-- Logo con glitch -->
+            <div class="loader-logo-container">
+                <div class="loader-logo-glitch" data-text="Loyca">Loyca</div>
+                <div class="loader-subtitle">Marketing & Data Science</div>
+            </div>
+            
+            <!-- Onda de choque expansiva -->
+            <div class="shockwave" id="shockwave"></div>
+            
+            <!-- Static noise overlay -->
+            <div class="static-noise" id="staticNoise"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>🎉 LOYCA - VERSIÓN SIN CSS</h1>
+        <p>Si ves esto, el HTML funciona pero el CSS tiene problemas.</p>
+        
+        <section id="home">
+            <h2>Inicio</h2>
+            <p>Contenido de la sección de inicio...</p>
+        </section>
+        
+        <section id="about">
+            <h2>Quiénes Somos</h2>
+            <p>Contenido de la sección about...</p>
+        </section>
+        
+        <section id="services">
+            <h2>Servicios</h2>
+            <p>Contenido de la sección services...</p>
+        </section>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
