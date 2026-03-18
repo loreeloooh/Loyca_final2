@@ -51,7 +51,7 @@ body.dark-mode {
 }
 
 .carousel-slide {
-    position: absolute;
+    
     top: 0;
     left: 0;
     width: 100%;
@@ -485,6 +485,35 @@ body.dark-mode .form-group textarea {
     transform: none;
 }
 
+.form-submit-btn {
+    background: linear-gradient(135deg, var(--gold), #e67e22);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+    margin-top: 20px;
+}
+
+.form-submit-btn:hover {
+    background: linear-gradient(135deg, #e67e22, var(--gold));
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+}
+
+.form-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
 /* Enhanced Form Styles */
 .form-section {
     margin-bottom: 2rem;
@@ -509,6 +538,22 @@ body.dark-mode .form-section {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form section titles for questionnaire forms */
+.social-media-form .form-section h3,
+.web-dev-form .form-section h3 {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 
+        0 0 10px rgba(243, 156, 18, 0.6),
+        0 0 20px rgba(243, 156, 18, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .form-row {
@@ -539,24 +584,42 @@ body.dark-mode .form-group label {
 .form-group select {
     width: 100%;
     padding: 1rem;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    background: var(--bg-light);
-    color: var(--text-dark);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    background: rgba(26, 26, 26, 0.6);
+    color: var(--text-light);
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
+    font-weight: 500;
     transition: all 0.3s ease;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f39c12' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2em;
+    padding-right: 2.5rem;
 }
 
 body.dark-mode .form-group select {
-    background: var(--bg-dark);
+    background: rgba(26, 26, 26, 0.8);
     color: var(--text-light);
+    border-color: rgba(212, 175, 55, 0.3);
 }
 
 .form-group select:focus {
     outline: none;
-    border-color: var(--primary-pink);
-    box-shadow: 0 0 0 3px rgba(228, 91, 122, 0.1);
+    border-color: var(--gold);
+    background: rgba(26, 26, 26, 0.8);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.form-group select option {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 0.5rem;
 }
 
 .form-message {
@@ -3141,27 +3204,33 @@ body.dark-mode .packs-carousel.style--coverflow .pack-card.is-active {
 }
 
  .loyca-chatbot {
-     position: fixed;
-     right: 22px;
-     bottom: 22px;
-     z-index: 9998;
-     font-family: 'Poppins', sans-serif;
+     position: fixed !important;
+     right: 22px !important;
+     bottom: 22px !important;
+     z-index: 9998 !important;
+     font-family: 'Poppins', sans-serif !important;
  }
  
  .chatbot-fab {
-    width: 56px;
-    height: 80px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background: linear-gradient(135deg, var(--primary-pink), var(--primary-green));
-    color: #fff;
-    cursor: pointer;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-     flex-direction: column;
-     gap: 2px;
+    width: 56px !important;
+    height: 80px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    background: linear-gradient(135deg, var(--primary-pink), var(--primary-green)) !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+     flex-direction: column !important;
+     gap: 2px !important;
+     transition: all 0.3s ease !important;
+}
+
+.chatbot-fab:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
 }
 
  .chatbot-fab::after {

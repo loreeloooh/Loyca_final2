@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Control del loader animado
     initPageLoader();
     
+    // Inicializar carrusel
+    initCarousel();
+    startCarouselAutoAdvance();
+    
     // Inicializar animaciones de letras
     initLetterAnimations();
     initTypewriterEffect();
@@ -116,10 +120,17 @@ function activateParticleExplosion() {
 // ===================================
 
 let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-slide');
-const indicators = document.querySelectorAll('.indicator');
+let slides;
+let indicators;
+
+function initCarousel() {
+    slides = document.querySelectorAll('.carousel-slide');
+    indicators = document.querySelectorAll('.indicator');
+}
 
 function changeSlide(direction) {
+    if (!slides || slides.length === 0) return;
+    
     slides[currentSlide].classList.remove('active');
     indicators[currentSlide].classList.remove('active');
     
@@ -136,6 +147,8 @@ function changeSlide(direction) {
 }
 
 function goToSlide(slideIndex) {
+    if (!slides || slides.length === 0) return;
+    
     slides[currentSlide].classList.remove('active');
     indicators[currentSlide].classList.remove('active');
     
@@ -146,9 +159,11 @@ function goToSlide(slideIndex) {
 }
 
 // Auto-advance carousel
-setInterval(() => {
-    changeSlide(1);
-}, 5000);
+function startCarouselAutoAdvance() {
+    setInterval(() => {
+        changeSlide(1);
+    }, 5000);
+}
 
 // ===================================
 // SPLIT TEXT ANIMATION

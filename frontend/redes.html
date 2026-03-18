@@ -251,7 +251,7 @@
             </div>
 
             <div class="linktree-links">
-                <a href="https://instagram.com/loyca" target="_blank" class="linktree-link linktree-link-instagram">
+                <a href="http://instagram.com/loyca.pro" target="_blank" class="linktree-link linktree-link-instagram">
                     <div class="linktree-link-content">
                         <img src="images/plataformas/instagram.png" alt="Instagram" class="linktree-link-icon-img">
                         <span>Instagram</span>
@@ -259,6 +259,7 @@
                     <span class="linktree-link-arrow">→</span>
                 </a>
 
+                <!-- Facebook comentado temporalmente
                 <a href="https://facebook.com/loyca" target="_blank" class="linktree-link linktree-link-facebook">
                     <div class="linktree-link-content">
                         <img src="images/plataformas/facebook.png" alt="Facebook" class="linktree-link-icon-img">
@@ -266,8 +267,9 @@
                     </div>
                     <span class="linktree-link-arrow">→</span>
                 </a>
+                -->
 
-                <a href="https://tiktok.com/@loyca" target="_blank" class="linktree-link linktree-link-tiktok">
+                <a href="https://www.tiktok.com/@loyca.pro" target="_blank" class="linktree-link linktree-link-tiktok">
                     <div class="linktree-link-content">
                         <img src="images/plataformas/tiktok.png" alt="TikTok" class="linktree-link-icon-img">
                         <span>TikTok</span>
@@ -275,7 +277,7 @@
                     <span class="linktree-link-arrow">→</span>
                 </a>
 
-                <a href="https://linkedin.com/company/loyca" target="_blank" class="linktree-link linktree-link-linkedin">
+                <a href="https://www.linkedin.com/company/loyca" target="_blank" class="linktree-link linktree-link-linkedin">
                     <div class="linktree-link-content">
                         <img src="images/plataformas/linkedin.png" alt="LinkedIn" class="linktree-link-icon-img">
                         <span>LinkedIn</span>
@@ -335,5 +337,34 @@
     </div>
 
     <script src="../chatbot.js"></script>
+    <script>
+        // Debug script para verificar el chatbot
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página redes cargada');
+            
+            const chatbot = document.getElementById('loycaChatbot');
+            const fab = document.getElementById('chatbotFab');
+            
+            console.log('Chatbot element:', chatbot);
+            console.log('FAB element:', fab);
+            
+            if (chatbot) {
+                console.log('Chatbot encontrado');
+                chatbot.style.display = 'block';
+                chatbot.style.visibility = 'visible';
+            } else {
+                console.error('Chatbot no encontrado');
+            }
+            
+            if (fab) {
+                console.log('Botón FAB encontrado');
+                fab.style.display = 'flex';
+                fab.style.visibility = 'visible';
+                fab.style.pointerEvents = 'auto';
+            } else {
+                console.error('Botón FAB no encontrado');
+            }
+        });
+    </script>
 </body>
 </html>
