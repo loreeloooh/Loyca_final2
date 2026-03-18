@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyca - Social Media & Creative Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Navegación principal">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="#home" class="logo-link" aria-label="Loyca - Inicio">
+                        <h1>Loyca</h1>
+                    </a>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list" role="menubar">
+                        <li role="none"><a href="#home" class="nav-link" role="menuitem">Inicio</a></li>
+                        <li role="none"><a href="#services" class="nav-link" role="menuitem">Servicios</a></li>
+                        <li role="none"><a href="redes.html" class="nav-link" role="menuitem">Redes</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <div class="search-container">
+                            <input type="search" class="search-bar" placeholder="Buscar..." aria-label="Buscar en el sitio">
+                            <button class="search-btn" type="button" aria-label="Ejecutar búsqueda">🔍</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Abrir menú móvil" aria-expanded="false">
+                    <span class="hamburger-line" aria-hidden="true"></span>
+                    <span class="hamburger-line" aria-hidden="true"></span>
+                    <span class="hamburger-line" aria-hidden="true"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <div class="slide-image" style="background-image: url('images/backgrounds/slide1.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Unimos datos y marketing para impulsar tu empresa</h2>
+                            <p>Estrategias digitales basadas en análisis para maximizar tu crecimiento</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-image" style="background-image: url('images/backgrounds/slide2.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Unimos datos y marketing para impulsar tu empresa</h2>
+                            <p>Soluciones integrales de marketing digital y análisis de datos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-image" style="background-image: url('images/backgrounds/slide3.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Unimos datos y marketing para impulsar tu empresa</h2>
+                            <p>Transformamos tus datos en decisiones estratégicas rentables</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">‹</button>
+                    <button class="carousel-btn next-btn" onclick="changeSlide(1)">›</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide(0)"></span>
+                    <span class="indicator" onclick="goToSlide(1)"></span>
+                    <span class="indicator" onclick="goToSlide(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">Quiénes Somos</h2>
+                        <p>Somos un equipo de profesionales apasionadas por el marketing digital y el análisis de datos. Combinamos nuestra experiencia en redes sociales, desarrollo web y data analytics para ofrecer soluciones integrales que impulsan el crecimiento de las empresas.</p>
+                        <p>Nuestra misión es transformar tus datos en decisiones estratégicas, crear contenido que conecte con tu audiencia y desarrollar herramientas digitales que potencien tu presencia en el mercado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Servicios</h2>
+                <div class="services-list">
+                    <div class="service-item" data-service="publicidad-redes">
+                        <div class="service-content">
+                            <h3>Publicidad y Redes</h3>
+                            <span class="service-tag tag-pink">SOCIAL MEDIA & ADS</span>
+                            <p>Gestionamos tus redes sociales y campañas publicitarias para aumentar tu visibilidad y conectar con tu audiencia ideal. Estrategias personalizadas que generan resultados reales y medibles.</p>
+                            <ul class="service-benefits">
+                                <li>Mayor alcance y visibilidad</li>
+                                <li>Conexión auténtica con clientes</li>
+                                <li>Crecimiento sostenible y orgánico</li>
+                                <li>Retorno de inversión medible</li>
+                            </ul>
+                            <button class="service-cta" onclick="window.location.href='publicidad-redes.html'">CONTRATAR</button>
+                        </div>
+                        <div class="service-overlay">
+                            <h3>Publicidad y Redes</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item" data-service="desarrollo-web">
+                        <div class="service-content">
+                            <h3>Desarrollo Web</h3>
+                            <span class="service-tag tag-green">WEB DEVELOPMENT</span>
+                            <p>Creamos páginas web profesionales y fáciles de usar para tu negocio. Sitios modernos que se ven bien en celulares y computadoras, ayudando a que más clientes te encuentren y contacten.</p>
+                            <p class="service-extra">Además, ofrecemos servicios de actualización web: nos encargamos de mantener tu página siempre actualizada. Tú nos dices qué cambiar y nosotros lo hacemos por ti, sin que te preocupes por nada técnico.</p>
+                            <ul class="service-benefits">
+                                <li>Páginas web profesionales y modernas</li>
+                                <li>Se ven perfectas en celulares y tablets</li>
+                                <li>Fáciles de encontrar en Google</li>
+                                <li>Diseñadas para que tus clientes te contacten</li>
+                                <li>Actualizaciones de contenido cuando las necesites</li>
+                                <li>Cambios de diseño y mejoras constantes</li>
+                                <li>Nosotros hacemos todo el trabajo técnico</li>
+                                <li>Tu web siempre funcionando perfectamente</li>
+                            </ul>
+                            <button class="service-cta" onclick="window.location.href='publicidad-redes.html'">CONTRATAR</button>
+                        </div>
+                        <div class="service-overlay">
+                            <h3>Desarrollo Web</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item" data-service="ciencia-datos">
+                        <div class="service-content">
+                            <h3>Ciencia de Datos</h3>
+                            <span class="service-tag tag-gold">DATA ANALYTICS</span>
+                            <p>Analizamos tus datos para poder predecir la escalabilidad y sustentabilidad de tu negocio, mediante una proyección de tus datos históricos, logrando tomar decisiones basadas en datos que no solo ayudarán a organizar la estructura de tu organización, si no que pondrán en alza tu rentabilidad, optimizarán tus costos y mejorarán tu eficiencia operativa.</p>
+                            <ul class="service-benefits">
+                                <li>Decisiones basadas en datos reales</li>
+                                <li>Predicciones de crecimiento</li>
+                                <li>Optimización de costos</li>
+                                <li>Mejora en eficiencia operativa</li>
+                            </ul>
+                            <button class="service-cta" onclick="window.location.href='ciencia-datos.html'">CONTRATAR</button>
+                        </div>
+                        <div class="service-overlay">
+                            <h3>Ciencia de Datos</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>loyca</h3>
+                    <p>Creatividad sin límites</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="#services">Social Media</a></li>
+                            <li><a href="#services">Branding</a></li>
+                            <li><a href="#services">Diseño</a></li>
+                            <li><a href="#services">Film Making</a></li>
+                            <li><a href="#services">Website Development</a></li>
+                            <li><a href="#services">Análisis de Datos</a></li>
+                            <li><a href="#services">Publicidad Digital</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="contacto.html">Contacto</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">📷</a>
+                        <a href="#">📘</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Loyca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="service-modal" id="serviceModal" aria-hidden="true">
+        <div class="service-modal__overlay" data-close="true"></div>
+        <div class="service-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
+            <button class="service-modal__close" type="button" aria-label="Cerrar" data-close="true">×</button>
+            <div class="service-modal__content">
+                <div class="service-modal__header">
+                    <div class="service-modal__icon" id="serviceModalIcon" aria-hidden="true"></div>
+                    <div>
+                        <h3 class="service-modal__title" id="serviceModalTitle"></h3>
+                        <div class="service-modal__tag" id="serviceModalTag"></div>
+                    </div>
+                </div>
+                <div class="service-modal__body" id="serviceModalBody"></div>
+                <div class="service-modal__actions">
+                    <button class="btn-primary" id="serviceModalCta" type="button">QUIERO ESTE SERVICIO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loyca-chatbot" id="loycaChatbot" aria-live="polite">
+        <button class="chatbot-fab" id="chatbotFab" aria-label="Abrir chat">
+            <span class="chatbot-fab__icon">💬</span>
+        </button>
+
+        <div class="chatbot-window" id="chatbotWindow" role="dialog" aria-modal="false" aria-label="Asistente virtual Loyca">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <div class="chatbot-title__avatar">🤖</div>
+                    <div class="chatbot-title__info">
+                        <div class="chatbot-title__name">Loyca</div>
+                        <div class="chatbot-title__status">En línea</div>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose" aria-label="Cerrar chat">×</button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages"></div>
+            <div class="chatbot-quick" id="chatbotQuick"></div>
+
+            <form class="chatbot-input" id="chatbotForm" autocomplete="off">
+                <input id="chatbotText" type="text" placeholder="Escribí un mensaje..." />
+                <button type="submit">➤</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../chatbot.js"></script>
+
+    <script src="script.js"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>

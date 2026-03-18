@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo Web - Loyca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library - Animaciones al hacer scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Scroll Particles -->
+    <div class="scroll-particles" id="scrollParticles"></div>
+    
+    <!-- Navigation Timeline -->
+    <nav class="nav-timeline" id="navTimeline">
+        <div class="timeline-dot active" data-section="Inicio" data-target="#home"></div>
+        <div class="timeline-dot" data-section="Sobre" data-target="#about"></div>
+        <div class="timeline-dot" data-section="Servicios" data-target="#services"></div>
+    </nav>
+    
+    <!-- Partículas de fondo -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="../index.html" class="logo-link" aria-label="Loyca - Inicio">
+                        <h1>Loyca</h1>
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="publicidad-redes.html">Publicidad</a></li>
+                        <li><a href="desarrollo-web.html" class="active">Desarrollo Web</a></li>
+                        <li><a href="ciencia-datos.html">Ciencia de Datos</a></li>
+                        <li><a href="redes.html">Redes</a></li>
+                    </ul>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <div class="slide-image" style="background-image: url('../images/backgrounds/slide1.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Desarrollo Web Profesional</h2>
+                            <p>Sitios web modernos que convierten visitantes en clientes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-image" style="background-image: url('../images/backgrounds/slide2.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Desarrollo Web Profesional</h2>
+                            <p>Diseño responsive y optimización SEO para máxima visibilidad</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-image" style="background-image: url('../images/backgrounds/slide3.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Desarrollo Web Profesional</h2>
+                            <p>Soluciones a medida que impulsan tu crecimiento digital</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">‹</button>
+                    <button class="carousel-btn next-btn" onclick="changeSlide(1)">›</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide(0)"></span>
+                    <span class="indicator" onclick="goToSlide(1)"></span>
+                    <span class="indicator" onclick="goToSlide(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title scroll-reveal">Desarrollo Web a Medida</h2>
+                        <p class="scroll-reveal">En Loyca creamos páginas web profesionales, rápidas y optimizadas que representan la identidad de tu marca. Nuestro enfoque se centra en diseñar experiencias digitales que no solo se vean espectaculares, sino que también conviertan visitantes en clientes leales.</p>
+                        <p class="scroll-reveal">Desarrollamos sitios web completamente responsivos, optimizados para SEO y preparados para el crecimiento de tu negocio. Desde landing pages hasta e-commerce complejos, tenemos la solución perfecta para tus necesidades digitales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Nuestros Servicios Web</h2>
+                
+                <div class="services-list-section">
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Sitios Web Corporativos</h3>
+                            <p>Diseño y desarrollo de sitios web profesionales para empresas que buscan establecer una fuerte presencia online con imagen corporativa sólida.</p>
+                            <ul class="service-features">
+                                <li>Diseño personalizado</li>
+                                <li>Optimización SEO</li>
+                                <li>Panel de administración</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Tiendas Online (E-commerce)</h3>
+                            <p>Plataformas de venta online completas con pasarelas de pago integradas, gestión de inventario y experiencia de compra optimizada.</p>
+                            <ul class="service-features">
+                                <li>Carrito de compras</li>
+                                <li>Múltiples pasarelas de pago</li>
+                                <li>Control de inventario</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Landing Pages</h3>
+                            <p>Páginas de aterrizaje optimizadas para conversiones específicas, perfectas para campañas de marketing y generación de leads.</p>
+                            <ul class="service-features">
+                                <li>Diseño focalizado</li>
+                                <li>Formularios de contacto</li>
+                                <li>Análisis de conversiones</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-content">
+                            <h3>Mantenimiento y Actualizaciones</h3>
+                            <p>Servicio continuo de mantenimiento para mantener tu sitio web siempre actualizado, seguro y funcionando perfectamente.</p>
+                            <ul class="service-features">
+                                <li>Actualizaciones de seguridad</li>
+                                <li>Backups automáticos</li>
+                                <li>Soporte técnico</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Formulario de Desarrollo Web -->
+        <section id="webDevForm" class="social-media-form-section">
+            <div class="container">
+                <h2 class="section-title">Solicita tu Presupuesto de Desarrollo Web</h2>
+                <p class="social-form-intro">Cuéntanos sobre tu proyecto y te enviaremos una propuesta personalizada.</p>
+                
+                <form id="webDevFormElement" class="social-media-form">
+                    <!-- Datos básicos -->
+                    <div class="form-section">
+                        <h3>📋 Información de Contacto</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="web_name">Nombre y apellido *</label>
+                                <input type="text" id="web_name" name="web_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="web_email">Email *</label>
+                                <input type="email" id="web_email" name="web_email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="web_phone">Número de contacto *</label>
+                                <input type="tel" id="web_phone" name="web_phone" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="web_company">Empresa / Proyecto *</label>
+                                <input type="text" id="web_company" name="web_company" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información del proyecto -->
+                    <div class="form-section">
+                        <h3>💻 Información del Proyecto</h3>
+                        <div class="form-group">
+                            <label for="web_project_type">¿Qué tipo de sitio web necesitas? *</label>
+                            <select id="web_project_type" name="web_project_type" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="Sitio Web Corporativo">Sitio Web Corporativo</option>
+                                <option value="Tienda E-commerce">Tienda E-commerce</option>
+                                <option value="Landing Page">Landing Page</option>
+                                <option value="Blog o Portal">Blog o Portal</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="web_description">Describe tu proyecto *</label>
+                            <textarea id="web_description" name="web_description" rows="4" placeholder="Cuéntanos los detalles de tu proyecto..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="web_features">Funcionalidades específicas que necesitas</label>
+                            <textarea id="web_features" name="web_features" rows="3" placeholder="Ej: Carrito de compras, sistema de reservas, integración con redes sociales, etc..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Presupuesto y tiempo -->
+                    <div class="form-section">
+                        <h3>💰 Presupuesto y Tiempo</h3>
+                        <div class="form-group">
+                            <label for="web_budget">Rango de presupuesto estimado</label>
+                            <select id="web_budget" name="web_budget">
+                                <option value="">Selecciona una opción</option>
+                                <option value="Menos de $500.000">Menos de $500.000</option>
+                                <option value="$500.000 - $1.000.000">$500.000 - $1.000.000</option>
+                                <option value="$1.000.000 - $2.000.000">$1.000.000 - $2.000.000</option>
+                                <option value="$2.000.000 - $5.000.000">$2.000.000 - $5.000.000</option>
+                                <option value="Más de $5.000.000">Más de $5.000.000</option>
+                                <option value="A consultar">A consultar</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="web_timeline">¿Cuándo necesitas que esté listo?</label>
+                            <select id="web_timeline" name="web_timeline">
+                                <option value="">Selecciona una opción</option>
+                                <option value="Lo antes posible">Lo antes posible</option>
+                                <option value="Dentro de 1 mes">Dentro de 1 mes</option>
+                                <option value="Dentro de 2-3 meses">Dentro de 2-3 meses</option>
+                                <option value="Dentro de 3-6 meses">Dentro de 3-6 meses</option>
+                                <option value="Más de 6 meses">Más de 6 meses</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="form-submit-btn">Enviar Solicitud</button>
+                    <div class="form-status" id="webFormStatus"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>loyca</h3>
+                    <p>Creatividad sin límites</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="#services">Desarrollo Web</a></li>
+                            <li><a href="../index.html#services">Social Media</a></li>
+                            <li><a href="ciencia-datos.html">Análisis de Datos</a></li>
+                            <li><a href="publicidad-redes.html">Publicidad Digital</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="../index.html#about">Sobre Nosotros</a></li>
+                            <li><a href="redes.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">📷</a>
+                        <a href="#">📘</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Loyca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Inicializar EmailJS
+        (function() {
+            emailjs.init("M2mep0-FHqqCTurSz");
+        })();
+
+        // Manejar envío del formulario
+        document.getElementById('webDevFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const statusDiv = document.getElementById('webFormStatus');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            // Mostrar estado de carga
+            statusDiv.innerHTML = '<div class="loading">Enviando...</div>';
+            statusDiv.className = 'form-status loading';
+            submitBtn.disabled = true;
+            
+            // Recopilar datos del formulario
+            const formData = {
+                name: document.getElementById('web_name').value,
+                email: document.getElementById('web_email').value,
+                phone: document.getElementById('web_phone').value,
+                company: document.getElementById('web_company').value,
+                project_type: document.getElementById('web_project_type').value,
+                description: document.getElementById('web_description').value,
+                features: document.getElementById('web_features').value,
+                budget: document.getElementById('web_budget').value,
+                timeline: document.getElementById('web_timeline').value,
+                time: new Date().toLocaleString('es-AR', { 
+                    timeZone: 'America/Argentina/Buenos_Aires',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })
+            };
+            
+            // Enviar email
+            emailjs.send('service_dztv8jg', 'template_z48evio', formData)
+                .then(function(response) {
+                    statusDiv.innerHTML = '<div class="success">✅ ¡Formulario enviado correctamente! Nos pondremos en contacto pronto.</div>';
+                    statusDiv.className = 'form-status success';
+                    document.getElementById('webDevFormElement').reset();
+                })
+                .catch(function(error) {
+                    statusDiv.innerHTML = '<div class="error">❌ Error al enviar el formulario. Por favor, intenta nuevamente.</div>';
+                    statusDiv.className = 'form-status error';
+                    console.error('EmailJS error:', error);
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>

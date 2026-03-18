@@ -1,0 +1,42 @@
+/* Código para corregir la sección SERVICIOS con fondo naranja */
+
+/* Si es un elemento con clase .element o similar */
+.element,
+.services-header,
+.section-header,
+.servicios-banner {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-pink)) !important;
+    color: var(--text-light) !important;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Si es un elemento con fondo naranja específico */
+[style*="ff6b35"],
+[style*="f39c12"],
+[style*="orange"] {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-pink)) !important;
+    color: var(--text-light) !important;
+}
+
+/* Para cualquier elemento que tenga texto "SERVICIOS" */
+*:has-text("SERVICIOS"),
+*[data-section="servicios"],
+#servicios,
+.servicios {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-pink)) !important;
+    color: var(--text-light) !important;
+}
+
+/* Corrección específica para el elemento que muestra en la imagen */
+.services-title-banner {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-pink)) !important;
+    color: var(--text-light) !important;
+    padding: 15px 25px !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+}

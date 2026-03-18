@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciencia de Datos - Loyca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library - Animaciones al hacer scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Scroll Particles -->
+    <div class="scroll-particles" id="scrollParticles"></div>
+    
+    <!-- Navigation Timeline -->
+    <nav class="nav-timeline" id="navTimeline">
+        <div class="timeline-dot active" data-section="Inicio" data-target="#home"></div>
+        <div class="timeline-dot" data-section="Sobre" data-target="#about"></div>
+        <div class="timeline-dot" data-section="Dashboard" data-target="#dashboard"></div>
+        <div class="timeline-dot" data-section="Formulario" data-target="#kpi-form"></div>
+    </nav>
+    
+    <!-- Partículas de fondo -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="../index.html" class="logo-link" aria-label="Loyca - Inicio">
+                        <h1>Loyca</h1>
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="publicidad-redes.html">Publicidad</a></li>
+                        <li><a href="desarrollo-web.html">Desarrollo Web</a></li>
+                        <li><a href="ciencia-datos.html" class="active">Ciencia de Datos</a></li>
+                        <li><a href="redes.html">Redes</a></li>
+                    </ul>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <div class="slide-image" style="background-image: url('../images/backgrounds/slide1.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Ciencia de Datos que Transforma</h2>
+                            <p>Analizamos tu información para predecir el futuro y optimizar cada decisión estratégica</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-image" style="background-image: url('../images/backgrounds/slide2.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Ciencia de Datos que Transforma</h2>
+                            <p>Decisiones basadas en datos que maximizan rentabilidad y eficiencia operativa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="slide-image" style="background-image: url('../images/backgrounds/slide3.jpg');"></div>
+                    <div class="slide-overlay">
+                        <div class="slide-content">
+                            <h2>Ciencia de Datos que Transforma</h2>
+                            <p>Insights poderosos que revelan oportunidades y guían el crecimiento sostenible</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">‹</button>
+                    <button class="carousel-btn next-btn" onclick="changeSlide(1)">›</button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="goToSlide(0)"></span>
+                    <span class="indicator" onclick="goToSlide(1)"></span>
+                    <span class="indicator" onclick="goToSlide(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title scroll-reveal">Ciencia de Datos Analítica</h2>
+                        <p class="scroll-reveal">En Loyca transformamos datos en inteligencia estratégica. Nuestro enfoque analítico combina machine learning, estadística avanzada y visualización de datos para revelar insights que impulsan decisiones empresariales inteligentes.</p>
+                        <p class="scroll-reveal">Analizamos tus datos históricos para predecir tendencias, identificar oportunidades de optimización y construir modelos predictivos que te dan ventaja competitiva en el mercado.</p>
+                    </div>
+                </div>
+            </div>    </section>
+
+        <section id="dashboard" class="dashboard-section">
+            <div class="container">
+                <h2 class="section-title">Así Analizamos tu Potencial de Inversión</h2>
+                <p class="dashboard-intro">Te ayudamos a <strong>medir y analizar el potencial real de retorno</strong> basándonos en datos de tu industria y modelos predictivos.</p>
+                
+                <!-- KPIs con contadores animados -->
+                <div class="kpi-grid">
+                    <div class="kpi-card" data-kpi="revenue">
+                        <div class="kpi-icon">�</div>
+                        <div class="kpi-value" data-target="347">0</div>
+                        <div class="kpi-label">Potencial de Retorno (%)</div>
+                        <div class="kpi-description">Análisis de ROI potencial basado en tu industria <em>(Estudios sectoriales: ROI promedio de 347% en analytics)</em></div>
+                        <div class="kpi-progress">
+                            <div class="progress-bar" data-progress="94.7"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card" data-kpi="efficiency">
+                        <div class="kpi-icon">⚡</div>
+                        <div class="kpi-value" data-target="67">0</div>
+                        <div class="kpi-label">Optimización del Tiempo (%)</div>
+                        <div class="kpi-description">Automatizamos tareas para que tu equipo trabaje 67% más eficiente <em>(Investigación empresarial: 67% de productividad con automatización)</em></div>
+                        <div class="kpi-progress">
+                            <div class="progress-bar" data-progress="67"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card" data-kpi="losses">
+                        <div class="kpi-icon">�</div>
+                        <div class="kpi-value" data-target="89">0</div>
+                        <div class="kpi-label">Pérdidas Identificadas (%)</div>
+                        <div class="kpi-description">Detectamos áreas de mejora que podrían costarte $89K mensuales <em>(Análisis del sector: 89% de pérdidas detectables con IA)</em></div>
+                        <div class="kpi-progress">
+                            <div class="progress-bar" data-progress="89"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="kpi-card" data-kpi="compliance">
+                        <div class="kpi-icon">📈</div>
+                        <div class="kpi-value" data-target="98">0</div>
+                        <div class="kpi-label">Potencial de Optimización (%)</div>
+                        <div class="kpi-description">Identificamos oportunidades para mejorar procesos y cumplimiento <em>(Consultoría tecnológica: 98% de procesos optimizables)</em></div>
+                        <div class="kpi-progress">
+                            <div class="progress-bar" data-progress="98"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos animados -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Productividad del Equipo</h3>
+                        <p class="chart-subtitle">Horas de trabajo optimizadas vs tiempo perdido <em>(Estudios de productividad: 67% de aumento en productividad con analytics)</em></p>
+                        <div class="chart-container">
+                            <svg class="line-chart" viewBox="0 0 400 200">
+                                <defs>
+                                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#d4af37;stop-opacity:0.8" />
+                                        <stop offset="100%" style="stop-color:#d4af37;stop-opacity:0.1" />
+                                    </linearGradient>
+                                </defs>
+                                <path class="chart-line" d="M 0 150 L 50 120 L 100 100 L 150 80 L 200 60 L 250 70 L 300 40 L 350 30 L 400 20" 
+                                      stroke="url(#lineGradient)" stroke-width="3" fill="none" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+                                <path class="chart-area" d="M 0 150 L 50 120 L 100 100 L 150 80 L 200 60 L 250 70 L 300 40 L 350 30 L 400 20 L 400 200 L 0 200 Z" 
+                                      fill="url(#lineGradient)" opacity="0.3" stroke-dasharray="2000" stroke-dashoffset="2000"/>
+                            </svg>
+                            <div class="chart-points">
+                                <div class="chart-point" style="left: 0%; bottom: 25%;">
+                                    <div class="point-tooltip">Antes: 120h productivas</div>
+                                </div>
+                                <div class="chart-point" style="left: 25%; bottom: 40%;">
+                                    <div class="point-tooltip">Mes 1: 140h productivas</div>
+                                </div>
+                                <div class="chart-point" style="left: 50%; bottom: 60%;">
+                                    <div class="point-tooltip">Mes 3: 160h productivas</div>
+                                </div>
+                                <div class="chart-point" style="left: 75%; bottom: 75%;">
+                                    <div class="point-tooltip">Mes 6: 180h productivas</div>
+                                </div>
+                                <div class="chart-point" style="left: 100%; bottom: 85%;">
+                                    <div class="point-tooltip">Mes 12: 200h productivas</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-explanation">
+                            <p><strong>Resultado:</strong> 67% más productividad = 80 horas extra por persona al mes <em>(Investigación tecnológica: 80h adicionales de trabajo productivo por automatización)</em></p>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Problemas que Resolvemos</h3>
+                        <p class="chart-subtitle">Tipos de pérdidas y problemas que detectamos y solucionamos <em>(Análisis de datos: 92% de problemas prevenibles con datos)</em></p>
+                        <div class="chart-container">
+                            <div class="bar-chart">
+                                <div class="bar-item" data-value="89">
+                                    <div class="bar-fill" style="height: 0%; background: linear-gradient(135deg, #d4af37, #f4e4bc);"></div>
+                                    <div class="bar-label">Pérdidas Financieras</div>
+                                    <div class="bar-value">$89K/mes evitados</div>
+                                </div>
+                                <div class="bar-item" data-value="45">
+                                    <div class="bar-fill" style="height: 0%; background: linear-gradient(135deg, #b4b9ad, #d4d4c8);"></div>
+                                    <div class="bar-label">Errores Humanos</div>
+                                    <div class="bar-value">45% reducidos</div>
+                                </div>
+                                <div class="bar-item" data-value="92">
+                                    <div class="bar-fill" style="height: 0%; background: linear-gradient(135deg, #e45b7a, #f4a8b8);"></div>
+                                    <div class="bar-label">Ineficiencias</div>
+                                    <div class="bar-value">92% eliminadas</div>
+                                </div>
+                                <div class="bar-item" data-value="78">
+                                    <div class="bar-fill" style="height: 0%; background: linear-gradient(135deg, #4a90e2, #87ceeb);"></div>
+                                    <div class="bar-label">Riesgos Ocultos</div>
+                                    <div class="bar-value">78% controlados</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-explanation">
+                            <p><strong>Impacto:</strong> Protegemos tu negocio de pérdidas millonarias <em>(Economía global: $4.4B en pérdidas prevenibles anualmente)</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline animada -->
+                <div class="timeline-section">
+                    <h2 class="section-title">Así Transformamos Tu Negocio</h2>
+                    <p class="timeline-intro">4 pasos para optimizar, proteger y hacer crecer tu empresa <em>(Investigación empresarial: 90% de empresas exitosas usan analytics estratégico)</em></p>
+                    <div class="timeline">
+                        <div class="timeline-item" data-delay="0">
+                            <div class="timeline-marker">
+                                <svg class="timeline-icon" viewBox="0 0 24 24">
+                                    <path class="icon-path" d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" 
+                                          fill="none" stroke="#d4af37" stroke-width="2" stroke-dasharray="100" stroke-dashoffset="100"/>
+                                </svg>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Paso 1: Diagnóstico Integral</h3>
+                                <p>Analizamos tus procesos, datos y operaciones para identificar pérdidas de tiempo, dinero y oportunidades.
+                                 Después diseñamos soluciones estratégicas hechas a medida para mejorar tu eficiencia y resultados.</p>
+                                <div class="timeline-progress">
+                                    <div class="progress-fill" data-progress="100"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" data-delay="200">
+                            <div class="timeline-marker">
+                                <svg class="timeline-icon" viewBox="0 0 24 24">
+                                    <path class="icon-path" d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" 
+                                          fill="none" stroke="#b4b9ad" stroke-width="2" stroke-dasharray="100" stroke-dashoffset="100"/>
+                                </svg>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Paso 2: Plan de Optimización</h3>
+                                <p>Diseñamos soluciones específicas: automatizar tareas repetitivas, optimizar rutas, controlar calidad y asegurar cumplimiento. Te mostramos exactamente cómo vamos a mejorar cada área.</p>
+                                <div class="timeline-progress">
+                                    <div class="progress-fill" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" data-delay="400">
+                            <div class="timeline-marker">
+                                <svg class="timeline-icon" viewBox="0 0 24 24">
+                                    <path class="icon-path" d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" 
+                                          fill="none" stroke="#e45b7a" stroke-width="2" stroke-dasharray="100" stroke-dashoffset="100"/>
+                                </svg>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Paso 3: Implementación Inteligente</h3>
+                                <p>Instalamos sistemas que monitorean en tiempo real: facturación automática, control de socios, optimización de rutas, calidad de productos. Todo funcionando desde el día 1.</p>
+                                <div class="timeline-progress">
+                                    <div class="progress-fill" data-progress="60"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item" data-delay="600">
+                            <div class="timeline-marker">
+                                <svg class="timeline-icon" viewBox="0 0 24 24">
+                                    <path class="icon-path" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" 
+                                          fill="none" stroke="#4a90e2" stroke-width="2" stroke-dasharray="100" stroke-dashoffset="100"/>
+                                </svg>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Paso 4: Negocio Optimizado</h3>
+                                <p>Tu empresa funcionando como una máquina: menos errores, más productividad, costos controlados y cumplimiento garantizado. Tú enfocado en crecer mientras nosotros lo optimizamos.</p>
+                                <div class="timeline-progress">
+                                    <div class="progress-fill" data-progress="25"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widgets interactivos -->
+                <div class="widgets-grid">
+                    <div class="widget-card" data-widget="performance">
+                        <div class="widget-header">
+                            <h3>Análisis de Potencial</h3>
+                            <div class="widget-status active"></div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="circular-progress" data-progress="94">
+                                <svg class="progress-ring" viewBox="0 0 120 120">
+                                    <circle class="progress-bg" cx="60" cy="60" r="54" fill="none" stroke="#2a2a2a" stroke-width="8"/>
+                                    <circle class="progress-fill" cx="60" cy="60" r="54" fill="none" stroke="#d4af37" stroke-width="8"
+                                            stroke-dasharray="339.292" stroke-dashoffset="339.292" transform="rotate(-90 60 60)"/>
+                                </svg>
+                                <div class="progress-text">347%</div>
+                            </div>
+                            <div class="widget-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">ROI Potencial</span>
+                                    <span class="metric-value">Basado en tu industria</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Tiempo de Análisis</span>
+                                    <span class="metric-value">2.3 semanas</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Precisión del Modelo</span>
+                                    <span class="metric-value">98%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget-card" data-widget="predictions">
+                        <div class="widget-header">
+                            <h3>Oportunidades Identificadas</h3>
+                            <div class="widget-status active"></div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="prediction-list">
+                                <div class="prediction-item">
+                                    <div class="prediction-icon">⚡</div>
+                                    <div class="prediction-text">
+                                        <div class="prediction-title">Eficiencia Operativa</div>
+                                        <div class="prediction-value">67% potencial de mejora</div>
+                                    </div>
+                                    <div class="prediction-confidence">Basado en benchmarks</div>
+                                </div>
+                                <div class="prediction-item">
+                                    <div class="prediction-icon">📊</div>
+                                    <div class="prediction-text">
+                                        <div class="prediction-title">Calidad de Procesos</div>
+                                        <div class="prediction-value">92% optimizable</div>
+                                    </div>
+                                    <div class="prediction-confidence">Análisis comparativo</div>
+                                </div>
+                                <div class="prediction-item">
+                                    <div class="prediction-icon">📈</div>
+                                    <div class="prediction-text">
+                                        <div class="prediction-title">Optimización de Rutas</div>
+                                        <div class="prediction-value">45% más eficiente</div>
+                                    </div>
+                                    <div class="prediction-confidence">Modelo predictivo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget-card" data-widget="data-quality">
+                        <div class="widget-header">
+                            <h3>Análisis de Riesgos</h3>
+                            <div class="widget-status warning"></div>
+                        </div>
+                        <div class="widget-content">
+                            <div class="quality-metrics">
+                                <div class="quality-item">
+                                    <div class="quality-label">Facturación Manual</div>
+                                    <div class="quality-bar">
+                                        <div class="quality-fill" data-quality="96"></div>
+                                    </div>
+                                    <div class="quality-value">96% riesgo de error</div>
+                                </div>
+                                <div class="quality-item">
+                                    <div class="quality-label">Control de Socios</div>
+                                    <div class="quality-bar">
+                                        <div class="quality-fill" data-quality="88"></div>
+                                    </div>
+                                    <div class="quality-value">88% sin seguimiento</div>
+                                </div>
+                                <div class="quality-item">
+                                    <div class="quality-label">Cumplimiento Normativo</div>
+                                    <div class="quality-bar">
+                                        <div class="quality-fill" data-quality="94"></div>
+                                    </div>
+                                    <div class="quality-value">94% sin verificar</div>
+                                </div>
+                                <div class="quality-item">
+                                    <div class="quality-label">Datos Desorganizados</div>
+                                    <div class="quality-bar">
+                                        <div class="quality-fill" data-quality="79"></div>
+                                    </div>
+                                    <div class="quality-value">79% sin estructurar</div>
+                                </div>
+                            </div>
+                            <div class="widget-footer">
+                                <p><strong>Beneficio:</strong> Identificamos riesgos para que puedas tomar decisiones informadas <em>(Análisis predictivo: 87% de riesgos identificables con analytics)</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Contacto KPI -->
+        <section id="contact-kpi" class="contact-kpi-section">
+            <div class="container">
+                <h2 class="section-title">Analiza el Potencial de tu Inversión</h2>
+                <p class="contact-kpi-intro">Completa este formulario y nuestro equipo analizará tu negocio para identificar oportunidades de optimización y medir el potencial real de retorno de inversión.</p>
+                
+                <form id="kpiContactForm" class="kpi-contact-form">
+                    <div class="form-section">
+                        <h3>📋 Datos de Contacto</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Nombre y Apellido *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Número de Teléfono *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Nombre de la Empresa *</label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="business_type">Razón Social *</label>
+                                <input type="text" id="business_type" name="business_type" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>🎯 5 Pasos para Escribir un Indicador Clave de Rendimiento</h3>
+                        
+                        <div class="kpi-step">
+                            <div class="step-header">
+                                <span class="step-number">01</span>
+                                <h4>Objetivos Estratégicos</h4>
+                            </div>
+                            <p class="step-description">Crear objetivos claros, medibles y alcanzables siguiendo elementos de acción, detalle y fecha límite.</p>
+                            <div class="form-group">
+                                <label for="step1_objectives">Describe tus objetivos estratégicos principales:</label>
+                                <textarea id="step1_objectives" name="step1_objectives" rows="3" placeholder="Ej: Aumentar ventas 20% en 6 meses, reducir costos operativos 15%..." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="kpi-step">
+                            <div class="step-header">
+                                <span class="step-number">02</span>
+                                <h4>Definir el Éxito</h4>
+                            </div>
+                            <p class="step-description">Identificar los criterios importantes que se deben cumplir para que cada objetivo estratégico tenga éxito.</p>
+                            <div class="form-group">
+                                <label for="step2_success">¿Cómo defines el éxito para tus objetivos?</label>
+                                <textarea id="step2_success" name="step2_success" rows="3" placeholder="Ej: Superar 100 ventas mensuales, mantener satisfacción del cliente > 90%..." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="kpi-step">
+                            <div class="step-header">
+                                <span class="step-number">03</span>
+                                <h4>Desarrollar Preguntas</h4>
+                            </div>
+                            <p class="step-description">¿Qué resultado quieres lograr? ¿Cómo defines el progreso? ¿Cómo mides el progreso?</p>
+                            <div class="form-group">
+                                <label for="step3_questions">Responde a estas preguntas clave:</label>
+                                <textarea id="step3_questions" name="step3_questions" rows="3" placeholder="¿Qué resultado quieres lograr? ¿Cómo defines el progreso? ¿Cómo mides el progreso?" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="kpi-step">
+                            <div class="step-header">
+                                <span class="step-number">04</span>
+                                <h4>Recopilar Datos</h4>
+                            </div>
+                            <p class="step-description">Recopilar datos relevantes para los objetivos de desempeño, desempeño actual.</p>
+                            <div class="form-group">
+                                <label for="step4_data">¿Qué datos tienes disponibles actualmente?</label>
+                                <textarea id="step4_data" name="step4_data" rows="3" placeholder="Ej: Ventas mensuales, datos de clientes, métricas de producción..." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="kpi-step">
+                            <div class="step-header">
+                                <span class="step-number">05</span>
+                                <h4>Definir Medida</h4>
+                            </div>
+                            <p class="step-description">Encuentra medidas cuantificables, realistas y limitadas en el tiempo para indicar el éxito de los objetivos estratégicos.</p>
+                            <div class="form-group">
+                                <label for="step5_measures">Define tus KPIs específicos:</label>
+                                <textarea id="step5_measures" name="step5_measures" rows="3" placeholder="Ej: % de crecimiento mensual, costo de adquisición por cliente, tiempo de respuesta..." required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <span class="btn-text">Enviar Solicitud de Análisis KPI</span>
+                            <span class="btn-loader" style="display: none;">Enviando...</span>
+                        </button>
+                        <div class="form-status" id="formStatus"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>loyca</h3>
+                    <p>Creatividad sin límites</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="#services">Data Analysis</a></li>
+                            <li><a href="#services">Machine Learning</a></li>
+                            <li><a href="#services">Business Intelligence</a></li>
+                            <li><a href="#services">Predictive Analytics</a></li>
+                            <li><a href="#services">Data Visualization</a></li>
+                            <li><a href="#services">Data Engineering</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="../index.html">Inicio</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#">📷</a>
+                        <a href="#">📘</a>
+                        <a href="#">🐦</a>
+                        <a href="#">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Loyca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="loyca-chatbot" id="loycaChatbot" aria-live="polite">
+        <button class="chatbot-fab" id="chatbotFab" aria-label="Abrir chat">
+            <span class="chatbot-fab__icon">💬</span>
+        </button>
+
+        <div class="chatbot-window" id="chatbotWindow" role="dialog" aria-modal="false" aria-label="Asistente virtual Loyca">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <div class="chatbot-title__avatar">🤖</div>
+                    <div class="chatbot-title__info">
+                        <div class="chatbot-title__name">Loyca</div>
+                        <div class="chatbot-title__status">En línea</div>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose" aria-label="Cerrar chat">×</button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages"></div>
+            <div class="chatbot-quick" id="chatbotQuick"></div>
+
+            <form class="chatbot-input" id="chatbotForm" autocomplete="off">
+                <input id="chatbotText" type="text" placeholder="Escribí un mensaje..." />
+                <button type="submit">➤</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../chatbot.js"></script>
+
+    <script src="../script.js"></script>
+    <script src="dashboard-script.js"></script>
+    
+    <!-- Services Dropdown Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggle = document.querySelector('.services-dropdown-toggle');
+            const dropdown = document.querySelector('.services-dropdown');
+            
+            if (dropdownToggle && dropdown) {
+                // Toggle dropdown al hacer click
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+                
+                // Cerrar dropdown al hacer click fuera
+                document.addEventListener('click', function(e) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+                
+                // Cerrar dropdown al hacer escape
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+    
+    <!-- EmailJS Initialization -->
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("M2mep0-FHqqCTurSz");
+        })();
+    </script>
+    
+    <!-- Formulario KPI Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('kpiContactForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoader = submitBtn.querySelector('.btn-loader');
+            const formStatus = document.getElementById('formStatus');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validación básica
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('error');
+                    } else {
+                        field.classList.remove('error');
+                    }
+                });
+                
+                if (!isValid) {
+                    showStatus('Por favor completa todos los campos requeridos', 'error');
+                    return;
+                }
+                
+                // Mostrar estado de carga
+                submitBtn.disabled = true;
+                btnText.style.display = 'none';
+                btnLoader.style.display = 'inline';
+                showStatus('Enviando tu solicitud...', 'loading');
+                
+                // Preparar datos para EmailJS
+                const templateParams = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    company: document.getElementById('company').value,
+                    business_type: document.getElementById('business_type').value,
+                    step1_objectives: document.getElementById('step1_objectives').value,
+                    step2_success: document.getElementById('step2_success').value,
+                    step3_questions: document.getElementById('step3_questions').value,
+                    step4_data: document.getElementById('step4_data').value,
+                    step5_measures: document.getElementById('step5_measures').value,
+                    time: new Date().toLocaleString('es-AR', { 
+                        timeZone: 'America/Argentina/Buenos_Aires',
+                        dateStyle: 'full',
+                        timeStyle: 'short'
+                    })
+                };
+                
+                // Enviar con EmailJS
+                emailjs.send('service_dztv8jg', 'template_z48evio', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        showStatus('¡Solicitud enviada con éxito! Te contactaremos en las próximas 48 horas.', 'success');
+                        form.reset();
+                        
+                        // Resetear botón después de 3 segundos
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            btnText.style.display = 'inline';
+                            btnLoader.style.display = 'none';
+                        }, 3000);
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        showStatus('Error al enviar. Por favor intenta nuevamente o contacta directamente a info@loyca.com', 'error');
+                        
+                        // Resetear botón
+                        submitBtn.disabled = false;
+                        btnText.style.display = 'inline';
+                        btnLoader.style.display = 'none';
+                    });
+            });
+            
+            function showStatus(message, type) {
+                formStatus.textContent = message;
+                formStatus.className = 'form-status ' + type;
+                formStatus.style.display = 'block';
+                
+                if (type === 'loading') {
+                    formStatus.style.color = '#d4af37';
+                } else if (type === 'success') {
+                    formStatus.style.color = '#4CAF50';
+                } else if (type === 'error') {
+                    formStatus.style.color = '#e45b7a';
+                }
+                
+                // Ocultar mensaje después de 5 segundos (excepto loading)
+                if (type !== 'loading') {
+                    setTimeout(() => {
+                        formStatus.style.display = 'none';
+                    }, 5000);
+                }
+            }
+            
+            // Remover clase error al escribir
+            form.querySelectorAll('input, textarea').forEach(field => {
+                field.addEventListener('input', function() {
+                    this.classList.remove('error');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

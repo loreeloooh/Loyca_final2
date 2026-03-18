@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyca - Redes Sociales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .linktree-page {
+            min-height: 100vh;
+            background: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            position: relative;
+        }
+
+        .linktree-container {
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+        }
+
+        .linktree-profile {
+            margin-bottom: 3rem;
+        }
+
+        .linktree-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .linktree-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .linktree-bio {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            max-width: 350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .linktree-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .linktree-link {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            padding: 1.4rem 1.8rem;
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .linktree-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .linktree-link:hover::before {
+            left: 100%;
+        }
+
+        .linktree-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .linktree-link-instagram {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(228, 91, 122, 0.4);
+        }
+
+        .linktree-link-instagram:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(228, 91, 122, 0.6);
+        }
+
+        .linktree-link-facebook {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(24, 119, 242, 0.4);
+        }
+
+        .linktree-link-facebook:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(24, 119, 242, 0.6);
+        }
+
+        .linktree-link-tiktok {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .linktree-link-tiktok:hover {
+            background: rgba(255, 255, 255, 0.35);
+            border-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .linktree-link-linkedin {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(0, 119, 181, 0.4);
+        }
+
+        .linktree-link-linkedin:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(0, 119, 181, 0.6);
+        }
+
+        .linktree-link-whatsapp {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(37, 211, 102, 0.4);
+        }
+
+        .linktree-link-whatsapp:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(37, 211, 102, 0.6);
+        }
+
+        .linktree-link-website {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(156, 173, 140, 0.4);
+        }
+
+        .linktree-link-website:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(156, 173, 140, 0.6);
+        }
+
+        .linktree-link-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .linktree-link-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .linktree-link-icon-img {
+            width: 28px;
+            height: 28px;
+            margin-right: 1.2rem;
+            object-fit: contain;
+        }
+
+        .linktree-link-arrow {
+            font-size: 1.3rem;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .linktree-link:hover .linktree-link-arrow {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        .linktree-footer {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        .linktree-copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-top: 2.5rem;
+        }
+
+        .back-to-home {
+            margin-top: 2rem;
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-to-home:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 480px) {
+            .linktree-container {
+                padding: 1rem;
+            }
+            
+            .linktree-name {
+                font-size: 1.8rem;
+            }
+            
+            .linktree-link {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="linktree-page">
+        <div class="linktree-container">
+            <div class="linktree-profile">
+                <h1 class="linktree-name">Loyca</h1>
+                <p class="linktree-subtitle">Creatividad sin límites</p>
+            </div>
+
+            <div class="linktree-links">
+                <a href="https://instagram.com/loyca" target="_blank" class="linktree-link linktree-link-instagram">
+                    <div class="linktree-link-content">
+                        <img src="images/plataformas/instagram.png" alt="Instagram" class="linktree-link-icon-img">
+                        <span>Instagram</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="https://facebook.com/loyca" target="_blank" class="linktree-link linktree-link-facebook">
+                    <div class="linktree-link-content">
+                        <img src="images/plataformas/facebook.png" alt="Facebook" class="linktree-link-icon-img">
+                        <span>Facebook</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="https://tiktok.com/@loyca" target="_blank" class="linktree-link linktree-link-tiktok">
+                    <div class="linktree-link-content">
+                        <img src="images/plataformas/tiktok.png" alt="TikTok" class="linktree-link-icon-img">
+                        <span>TikTok</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="https://linkedin.com/company/loyca" target="_blank" class="linktree-link linktree-link-linkedin">
+                    <div class="linktree-link-content">
+                        <img src="images/plataformas/linkedin.png" alt="LinkedIn" class="linktree-link-icon-img">
+                        <span>LinkedIn</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="https://wa.me/5493413138290" target="_blank" class="linktree-link linktree-link-whatsapp">
+                    <div class="linktree-link-content">
+                        <img src="images/plataformas/whatsapp.png" alt="WhatsApp" class="linktree-link-icon-img">
+                        <span>WhatsApp</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+
+                <a href="../index.html" class="linktree-link linktree-link-website">
+                    <div class="linktree-link-content">
+                        <span class="linktree-link-icon">L</span>
+                        <span>Loyca</span>
+                    </div>
+                    <span class="linktree-link-arrow">→</span>
+                </a>
+            </div>
+
+            <div class="linktree-footer">
+                <a href="../index.html" class="back-to-home">← Volver al Inicio</a>
+                <p class="linktree-copyright">© 2024 Loyca - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="loyca-chatbot" id="loycaChatbot" aria-live="polite">
+        <button class="chatbot-fab" id="chatbotFab" aria-label="Abrir chat">
+            <span class="chatbot-fab__icon">💬</span>
+        </button>
+
+        <div class="chatbot-window" id="chatbotWindow" role="dialog" aria-modal="false" aria-label="Asistente virtual Loyca">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <div class="chatbot-title__avatar">🤖</div>
+                    <div class="chatbot-title__info">
+                        <div class="chatbot-title__name">Loyca</div>
+                        <div class="chatbot-title__status">En línea</div>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose" aria-label="Cerrar chat">×</button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages"></div>
+            <div class="chatbot-quick" id="chatbotQuick"></div>
+
+            <form class="chatbot-input" id="chatbotForm" autocomplete="off">
+                <input id="chatbotText" type="text" placeholder="Escribí un mensaje..." />
+                <button type="submit">➤</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../chatbot.js"></script>
+</body>
+</html>
