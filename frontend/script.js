@@ -80,17 +80,14 @@ document.addEventListener('DOMContentLoaded', function() {
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 
+body.classList.add('dark-mode');
+localStorage.setItem('theme', 'dark');
+
 // Check for saved theme preference
 if (themeToggle) {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-    }
-
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDarkMode = body.classList.contains('dark-mode');
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
     });
 }
 
