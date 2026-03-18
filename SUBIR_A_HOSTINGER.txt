@@ -1,0 +1,33 @@
+====================================
+ARCHIVOS PARA SUBIR A HOSTINGER
+====================================
+
+ESTOS SON LOS ARCHIVOS QUE DEBES SUBIR PARA REEMPLAZAR LA VERSIÓN ANTIGUA:
+
+1. ARCHIVOS PRINCIPALES (raíz del sitio):
+   - index.html
+   - styles.css
+   - script.js
+   - chatbot.js
+   - chatbot-button-controller.js
+   - version-check.html (para verificar)
+
+2. CARPETA COMPLETA:
+   - frontend/ (toda la carpeta con todo su contenido)
+
+3. ARCHIVOS ADICIONALES:
+   - CNAME (si usas dominio personalizado)
+   - package-lock.json
+
+IMPORTANTE:
+- ELIMINA primero los archivos viejos en Hostinger
+- SUBE estos archivos reemplazándolos
+- VERIFICA con version-check.html que se vea el fondo oscuro
+
+====================================
+VARIABLES DE COLOR ACTUALIZADAS:
+--bg-dark: #1a1a1a (fondo oscuro)
+--primary-pink: #e45b7a
+--primary-green: #b4b9ad
+--gold: #f39c12
+====================================
