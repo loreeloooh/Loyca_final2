@@ -17,6 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicializar servicios interactivos
     initInteractiveServices();
+
+    initScrollAnimations();
+
+    if (window.AOS && typeof window.AOS.init === 'function') {
+        window.AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+    }
 });
 
 // ===================================
@@ -366,17 +376,14 @@ document.addEventListener('click', function(e) {
 const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 
+body.classList.add('dark-mode');
+localStorage.setItem('theme', 'dark');
+
 // Check for saved theme preference
 if (themeToggle) {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-    }
-
     themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDarkMode = body.classList.contains('dark-mode');
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
     });
 }
 

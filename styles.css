@@ -562,469 +562,20 @@ section {
 /* ===================================
    VARIABLES CSS
    =================================== */
-
 :root {
     --primary-green: #b4b9ad;
     --primary-pink: #e45b7a;
     --secondary-pink: #e45b7a;
-    --text-dark: #272425;
+    --text-dark: #ffffff;
     --text-light: #ffffff;
     --gold: #f39c12;
     --primary-gold: #f39c12;
-    --bg-light: #ffffff;
+    --green-dark: #1a3c34;
+    --pink-dark: #8a1e3a;
+    --bg-light: #1a1a1a;
     --bg-dark: #1a1a1a;
-    --card-bg-light: #f8f9fa;
+    --card-bg-light: #2a2a2a;
     --card-bg-dark: #2a2a2a;
-}
-
-/* ===================================
-   ANIMACIÓN ÉPICA - PARTICLES + GLITCH + SHOCKWAVE
-   =================================== */
-
-/* Loader principal con pantalla negra */
-.page-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.loader-black-screen {
-    width: 100%;
-    height: 100%;
-    background: #000000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: epicFadeOut 3s ease-in-out forwards;
-    animation-delay: 2.5s;
-}
-
-/* Logo con efecto GLITCH */
-.loader-logo-container {
-    position: relative;
-    z-index: 100;
-}
-
-.loader-logo-glitch {
-    font-family: 'Poppins', sans-serif;
-    font-size: 5rem;
-    font-weight: 900;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.5rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: glitchAppear 1.5s ease-in-out forwards;
-}
-
-.loader-logo-glitch-2 {
-    color: #00ffff;
-    animation: glitchAppear2 1.5s ease-in-out forwards;
-    z-index: 99;
-}
-
-.loader-logo-glitch-3 {
-    color: #ff00ff;
-    animation: glitchAppear3 1.5s ease-in-out forwards;
-    z-index: 98;
-}
-
-/* Partículas de explosión */
-.explosion-particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 50;
-}
-
-.particle-explosion {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #ffffff;
-    border-radius: 50%;
-    opacity: 0;
-    box-shadow: 0 0 10px #00ffff;
-}
-
-/* Onda de choque */
-.shockwave {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border: 3px solid #ffffff;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    z-index: 60;
-}
-
-/* Efectos de distorsión */
-.distortion-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, 
-        transparent 30%, 
-        rgba(255, 0, 255, 0.1) 50%, 
-        transparent 70%);
-    animation: distortionEffect 2s ease-in-out infinite;
-    z-index: 80;
-}
-
-.static-noise {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.1;
-    z-index: 90;
-    background-image: 
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 255, 255, 0.1) 2px,
-            rgba(255, 255, 255, 0.1) 4px
-        );
-    animation: staticNoise 0.1s linear infinite;
-}
-
-/* ANIMACIONES KEYFRAMES ÉPICAS */
-@keyframes glitchAppear {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
-        filter: blur(10px);
-    }
-    20% {
-        opacity: 1;
-        transform: translate(-48%, -52%) scale(1.1) rotate(1deg);
-        filter: blur(0px);
-    }
-    40% {
-        transform: translate(-52%, -48%) scale(0.9) rotate(-1deg);
-    }
-    60% {
-        transform: translate(-50%, -50%) scale(1.05) rotate(0.5deg);
-    }
-    80% {
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-    }
-}
-
-@keyframes glitchAppear2 {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-    }
-    20% {
-        opacity: 0.8;
-        transform: translate(-45%, -55%) scale(1.2);
-        filter: blur(2px);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-40%, -60%) scale(1.5);
-        filter: blur(10px);
-    }
-}
-
-@keyframes glitchAppear3 {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5);
-    }
-    20% {
-        opacity: 0.6;
-        transform: translate(-55%, -45%) scale(1.1);
-        filter: blur(1px);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-60%, -40%) scale(1.3);
-        filter: blur(8px);
-    }
-}
-
-@keyframes particleExplosion {
-    0% {
-        opacity: 1;
-        transform: translate(0, 0) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(var(--tx), var(--ty)) scale(0);
-    }
-}
-
-@keyframes shockwaveExpand {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(0);
-        border-width: 10px;
-    }
-    50% {
-        opacity: 0.8;
-        border-width: 3px;
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(20);
-        border-width: 1px;
-    }
-}
-
-@keyframes epicFadeOut {
-    0% {
-        opacity: 1;
-        filter: brightness(1);
-    }
-    70% {
-        opacity: 1;
-        filter: brightness(1.2);
-    }
-    100% {
-        opacity: 0;
-        filter: brightness(2) blur(5px);
-        visibility: hidden;
-    }
-}
-
-@keyframes distortionEffect {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(5px);
-    }
-}
-
-@keyframes staticNoise {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(4px);
-    }
-}
-
-/* Animación de entrada para el hero después del loader */
-.hero-section {
-    opacity: 1;
-}
-
-@keyframes heroReveal {
-    0% {
-        opacity: 0;
-        transform: translateY(50px) scale(0.95);
-        filter: blur(10px);
-    }
-    50% {
-        opacity: 0.8;
-        transform: translateY(10px) scale(1.02);
-        filter: blur(2px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
-}
-
-/* ===================================
-   ESTILOS ADICIONALES
-   =================================== */
-
-/* Animación de entrada para el header */
-.header {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Animación de entrada para elementos del hero */
-.hero-content {
-    opacity: 1;
-}
-
-.hero-visual {
-    opacity: 1;
-}
-
-.hero-buttons {
-    opacity: 1;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-}
-
-@keyframes fadeInRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-}
-
-/* ===================================
-   HERO CAROUSEL ESTILOS
-   =================================== */
-
-.hero-carousel {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.carousel-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.carousel-slide.active {
-    opacity: 1;
-}
-
-.slide-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.slide-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slide-content {
-    text-align: center;
-    color: white;
-    max-width: 800px;
-    padding: 2rem;
-}
-
-.slide-content h2 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
-    color: #ffffff !important;
-}
-
-.slide-content p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
-    color: #e8e8e8 !important;
-}
-
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2rem;
-    z-index: 10;
-}
-
-.carousel-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid white;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.carousel-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-}
-
-/* ===================================
-   INDICADORES DEL CARRUSEL - LOS 3 PUNTITOS
-   =================================== */
-
-.carousel-indicators {
-    position: absolute;     /* Posiciona los indicadores de forma absoluta dentro del carrusel */
-    bottom: -180px;          /* Distancia desde el fondo del carrusel (número menor = más abajo) */
-    left: 50%;             /* Posición horizontal inicial */
-    transform: translateX(-50%);  /* Centra perfectamente los indicadores horizontalmente */
-    display: flex;         /* Muestra los indicadores en línea horizontal */
-    gap: 1rem;             /* Espacio entre cada puntito */
-    z-index: 10;           /* Mantiene los indicadores visibles encima de otros elementos */
-}
-
-/* Estilos para cada puntito individual */
-.indicator {
-    width: 12px;           /* Ancho de cada puntito */
-    height: 12px;          /* Alto de cada puntito */
-    border-radius: 50%;    /* Hace que los puntitos sean circulares */
-    background: rgba(255, 255, 255, 0.5);  /* Color semi-transparente de los puntitos inactivos */
-    cursor: pointer;       /* Cambia el cursor al pasar sobre los puntitos */
-    transition: all 0.3s ease;  /* Animación suave al interactuar con los puntitos */
-}
-
-.indicator.active {
-    background: white;
-    transform: scale(1.2);
 }
 
 /* ===================================
@@ -2940,23 +2491,18 @@ body.dark-mode.services-page {
 }
 
 .service-card {
-    background: rgba(255, 255, 255, 0.96);
+    background: var(--bg-dark);
     padding: 2rem 1.6rem;
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
     border: 1px solid rgba(0, 0, 0, 0.06);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     min-height: 280px;
-}
-
-body.dark-mode .service-card {
-    background: var(--bg-dark);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .service-card:hover {
@@ -3038,16 +2584,11 @@ body.dark-mode .service-card {
     width: min(860px, calc(100% - 32px));
     max-height: calc(100vh - 32px);
     margin: 16px auto;
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--bg-dark);
     border-radius: 12px;
     overflow: auto;
     box-shadow: 0 24px 80px rgba(0,0,0,0.35);
     border: 1px solid rgba(0,0,0,0.08);
-}
-
-body.dark-mode .service-modal__dialog {
-    background: #101010;
-    border-color: rgba(255,255,255,0.08);
 }
 
 .service-modal__content {
@@ -3065,10 +2606,6 @@ body.dark-mode .service-modal__dialog {
     background: transparent;
     font-size: 28px;
     cursor: pointer;
-    color: #222;
-}
-
-body.dark-mode .service-modal__close {
     color: #f2f2f2;
 }
 
@@ -3276,7 +2813,7 @@ body.dark-mode .team .section-title {
 }
 
 .team-member {
-    background: rgba(255, 255, 255, 0.92);
+    background: var(--bg-dark);
     border-radius: 14px;
     padding: 2.2rem 2rem;
     text-align: center;
@@ -3291,11 +2828,6 @@ body.dark-mode .team .section-title {
 .team-member.featured {
     transform: translateY(-8px);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
-}
-
-body.dark-mode .team-member {
-    background: var(--bg-dark);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .team-member:hover {
@@ -3337,10 +2869,6 @@ body.dark-mode .team-member {
     color: var(--text-dark);
 }
 
-body.dark-mode .member-info h3 {
-    color: var(--text-light);
-}
-
 .role {
     display: inline-block;
     background: rgba(226, 148, 132, 0.65);
@@ -3359,10 +2887,6 @@ body.dark-mode .member-info h3 {
     line-height: 1.6;
     text-transform: none;
     font-size: 0.95rem;
-}
-
-body.dark-mode .bio {
-    color: var(--text-light);
 }
 
 .member-social {
@@ -3408,7 +2932,7 @@ body.dark-mode .bio {
 }
 
 .service-detail {
-    background: rgba(255, 255, 255, 0.96);
+    background: var(--bg-dark);
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 14px;
     box-shadow: 0 20px 46px rgba(0, 0, 0, 0.12);
@@ -3419,17 +2943,6 @@ body.dark-mode .bio {
 .service-detail[open] {
     border-color: rgba(180, 185, 173, 0.7);
     box-shadow: 0 24px 56px rgba(0, 0, 0, 0.14);
-}
-
-body.dark-mode .service-detail {
-    background: var(--bg-dark);
-    border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
-}
-
-body.dark-mode .service-detail[open] {
-    border-color: rgba(241, 200, 203, 0.35);
-    box-shadow: 0 22px 54px rgba(0, 0, 0, 0.62);
 }
 
 .service-detail summary {
@@ -3465,10 +2978,6 @@ body.dark-mode .service-detail[open] {
 
 .service-detail summary .service-acc-title {
     display: inline-block;
-}
-
-body.dark-mode .service-detail summary {
-    background: rgba(255, 255, 255, 0.06);
 }
 
 .service-detail summary::after {
@@ -3611,7 +3120,7 @@ body.dark-mode .service-detail summary {
     inset: 0;
     backface-visibility: hidden;
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--bg-dark);
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
     padding: 0.9rem;
@@ -3619,13 +3128,6 @@ body.dark-mode .service-detail summary {
     place-items: center;
     gap: 0.5rem;
     text-align: center;
-}
-
-body.dark-mode .cert-flip-front,
-body.dark-mode .cert-flip-back {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.32);
 }
 
 .cert-flip-back {
@@ -3638,12 +3140,8 @@ body.dark-mode .cert-flip-back {
     height: auto;
     display: block;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--bg-dark);
     padding: 0.35rem;
-}
-
-body.dark-mode .cert-face {
-    background: rgba(255, 255, 255, 0.08);
 }
 
 .cert-hint {
@@ -3702,17 +3200,11 @@ body.dark-mode .cert-face {
     grid-template-columns: 1fr 120px;
     gap: 0.9rem;
     align-items: center;
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--bg-dark);
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 12px;
     padding: 0.9rem;
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-}
-
-body.dark-mode .cert-card {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.32);
 }
 
 .cert-img,
@@ -3726,23 +3218,15 @@ body.dark-mode .cert-card {
 .cert-img {
     max-height: 210px;
     object-fit: contain;
-    background: rgba(255, 255, 255, 0.75);
+    background: var(--bg-dark);
     padding: 0.35rem;
-}
-
-body.dark-mode .cert-img {
-    background: rgba(255, 255, 255, 0.06);
 }
 
 .cert-qr {
     max-width: 120px;
     justify-self: end;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--bg-dark);
     padding: 0.35rem;
-}
-
-body.dark-mode .cert-qr {
-    background: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 640px) {
@@ -3851,12 +3335,11 @@ body.dark-mode .contact {
     padding: 1rem;
     border: 2px solid var(--primary-green);
     border-radius: 10px;
-    background: white;
+    background: var(--bg-dark);
     color: var(--text-dark);
     font-family: inherit;
 }
 
-body.dark-mode .form-group input,
 body.dark-mode .form-group textarea {
     background: var(--bg-dark);
     color: var(--text-light);
