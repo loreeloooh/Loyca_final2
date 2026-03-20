@@ -5280,11 +5280,12 @@ body.dark-mode .form-group select {
     transform: translateX(-100px);
     opacity: 0;
     transition: all 1s ease-out 0.3s;
-    max-width: 16ch;
+    max-width: 44ch;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    line-height: 1.1;
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
 }
 
 .slide-content.visible h2 {
