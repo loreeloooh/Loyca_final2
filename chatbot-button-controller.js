@@ -5,26 +5,11 @@ class ChatbotButtonController {
     }
 
     init() {
-        // Versión estática - no ajusta dinámicamente los tamaños
         console.log('ChatbotButtonController inicializado en modo estático');
     }
 
-    // Método para asegurar que todos los botones tengan el mismo tamaño
     ensureUniformSize() {
-        const buttons = document.querySelectorAll('.chatbot-chip');
-        
-        buttons.forEach(button => {
-            // Forzar altura fija más pequeña
-            button.style.height = '28px';
-            button.style.fontSize = '9px';
-            button.style.lineHeight = '1';
-            button.style.fontFamily = "'Poppins', sans-serif";
-            button.style.whiteSpace = 'nowrap';
-            button.style.overflow = 'hidden';
-            button.style.textOverflow = 'ellipsis';
-            button.style.padding = '4px 8px';
-            button.style.borderRadius = '12px';
-        });
+        return;
     }
 }
 

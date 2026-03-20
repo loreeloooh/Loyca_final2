@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
         web: `${prefix}frontend/desarrollo-web.html#webDevForm`
     };
 
+    let fallbackCount = 0;
+
     let history = [];
     try {
         history = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
@@ -96,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function setQuickButtons(buttons) {
         quick.innerHTML = '';
-        quick.style.display = buttons.length ? 'flex' : 'none';
+        quick.style.display = buttons.length ? 'grid' : 'none';
         buttons.forEach(btn => {
             const button = document.createElement('button');
             button.className = 'chatbot-chip';
@@ -121,122 +123,246 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showMainMenu() {
+        fallbackCount = 0;
         setQuickButtons([
-            { label: 'Servicios que ofrecen', onClick: () => handleIntent('servicios') },
-            { label: 'Rubros con los que trabajan', onClick: () => handleIntent('rubros') },
-            { label: 'Precios de presupuestos', onClick: () => handleIntent('precios') },
-            { label: 'Quiero hablar con una persona', onClick: () => handleIntent('contacto') }
+            { label: '🚀 Ver servicios', onClick: () => handleIntent('servicios') },
+            { label: '🧠 ¿Trabajan con mi rubro?', onClick: () => handleIntent('rubros') },
+            { label: '💰 Consultar precios', onClick: () => handleIntent('precios') },
+            { label: '👥 Conocer al equipo', onClick: () => handleIntent('equipo') },
+            { label: '💬 Hablar con una persona', onClick: () => handleIntent('contacto') }
         ]);
     }
 
-    function handleMoreServices() {
-        pushUser('Ver más servicios');
-        pushBot('Aquí tienes todas nuestras opciones específicas:\n\n📱 **Marketing Digital:**\n• Publicidad en Meta Ads\n• Google Ads Performance\n• Email Marketing\n• Content Marketing\n• TikTok Ads\n• LinkedIn Ads\n• YouTube Ads\n• Influencer Marketing\n• Marketing de Afiliados\n• Publicidad Programática\n\n🎨 **Branding y Diseño:**\n• Identidad Visual Corporativa\n• Diseño Gráfico Profesional\n• Packaging y Etiquetas\n• Video Marketing\n• Diseño de Logotipos\n• Manual de Marca\n• Diseño UI/UX\n• Fotografía Comercial\n• Diseño de Presentaciones\n\n🛒 **E-commerce:**\n• Tiendas Online Completas\n• Marketplace Management\n• Logística E-commerce\n• Sistemas de Pagos\n• Gestión de Inventarios\n• Dropshipping\n• Multi-vendor Marketplace\n• Sistemas de Reservas\n\n🔍 **SEO y Posicionamiento:**\n• SEO On-Page\n• SEO Técnico\n• Link Building\n• SEO Local\n• SEO Internacional\n• Optimización de Contenido\n• Análisis de Competencia\n• SEO para E-commerce\n\n📈 **Data Science:**\n• Análisis Predictivo\n• Machine Learning\n• Automatización Inteligente\n• Data Mining\n• Business Intelligence\n• Big Data Analytics\n• Análisis de Sentimiento\n• Modelos Estadísticos\n• Visualización de Datos\n\n💻 **Desarrollo Avanzado:**\n• Desarrollo de APIs\n• Web Apps Progresivas (PWA)\n• Integración de Sistemas\n• Desarrollo de Plugins\n• Optimización de Rendimiento\n• Cloud Computing\n• Desarrollo Mobile\n\n¿Qué servicio específico te interesa?').then(() => {
+    function showObjectiveButtons() {
+        setQuickButtons([
+            { label: '💰 Aumentar ventas', onClick: () => handleObjective('Aumentar ventas') },
+            { label: '🎯 Conseguir más clientes', onClick: () => handleObjective('Conseguir más clientes') },
+            { label: '📈 Mejorar posicionamiento', onClick: () => handleObjective('Mejorar posicionamiento') },
+            { label: '⚙️ Automatizar procesos', onClick: () => handleObjective('Automatizar procesos') },
+            { label: '📊 Analizar datos', onClick: () => handleObjective('Analizar datos') },
+            { label: '🌐 Crear presencia online', onClick: () => handleObjective('Crear presencia online') },
+            { label: '🔄 Optimizar estrategia', onClick: () => handleObjective('Optimizar estrategia') },
+            { label: '✍️ Otro', onClick: () => handleObjective('Otro') },
+            { label: '🔙 Volver', onClick: () => handleIntent('rubros') }
+        ]);
+    }
+
+    function showObjectiveOptions(industryLabel) {
+        pushBot(`Perfecto. Ya veo que tu negocio está dentro del rubro ${industryLabel}.\n\nPara orientarte mejor, contame cuál es el principal objetivo o necesidad que querés resolver.`).then(() => {
+            showObjectiveButtons();
+        });
+    }
+
+    function handleObjective(objective) {
+        pushUser(objective);
+
+        const responses = {
+            'Aumentar ventas': 'Perfecto. Si tu objetivo es aumentar ventas, podemos ayudarte a definir la mejor estrategia según tu rubro y el servicio que más se adapte a tu negocio.\n\nEl siguiente paso ideal es completar el formulario para que podamos analizar tu caso con más precisión.',
+            'Conseguir más clientes': 'Perfecto. Si tu objetivo es conseguir más clientes, podemos ayudarte a trabajar una estrategia enfocada en captación, posicionamiento y conversión.\n\nEl siguiente paso ideal es completar el formulario para que podamos analizar tu caso con más precisión.',
+            'Mejorar posicionamiento': 'Perfecto. Si tu objetivo es mejorar posicionamiento, podemos ayudarte a fortalecer tu presencia, comunicar mejor tu propuesta y ordenar tu estrategia digital.\n\nEl siguiente paso ideal es completar el formulario para que podamos analizar tu caso con más precisión.',
+            'Automatizar procesos': 'Perfecto. Si tu objetivo es automatizar procesos, podemos ayudarte a detectar oportunidades de mejora para ganar tiempo, orden y eficiencia.\n\nEl siguiente paso ideal es completar el formulario para que podamos analizar tu caso con más precisión.',
+            'Analizar datos': 'Perfecto. Si tu objetivo es analizar datos, podemos ayudarte a transformar información en decisiones más claras y rentables.\n\nEl siguiente paso ideal es completar el formulario para que podamos analizar tu caso con más precisión.',
+            'Crear presencia online': 'Perfecto. Si tu objetivo es crear presencia online, podemos ayudarte a construir una base digital sólida para que tu negocio se vea profesional y genere confianza.\n\nEl siguiente paso ideal es completar el formulario para que podamos analizar tu caso con más precisión.',
+            'Optimizar estrategia': 'Perfecto. Si tu objetivo es optimizar estrategia, podemos ayudarte a ordenar prioridades, mejorar acciones actuales y enfocar mejor tus recursos.\n\nEl siguiente paso ideal es completar el formulario para que podamos analizar tu caso con más precisión.',
+            'Otro': 'Perfecto. Podemos ayudarte a evaluar tu necesidad y orientarte hacia la mejor solución según tu caso.\n\nEl siguiente paso ideal es completar el formulario para que podamos analizar tu caso con más precisión.'
+        };
+
+        pushBot(responses[objective]).then(() => {
             setQuickButtons([
-                { label: 'Meta Ads', onClick: () => { pushUser('Meta Ads'); pushBot('📱 **Meta Ads (Facebook/Instagram Ads)**\n\nEs la publicidad pagada en la plataforma de Meta. Incluye:\n\n• Creación de campañas publicitarias\n• Segmentación avanzada de audiencia\n• Diseño de creativos publicitarios\n• Monitoreo y optimización de resultados\n• Reportes de rendimiento detallados\n\nPerfecto para empresas que quieren alcanzar clientes potenciales específicos y aumentar ventas rápidamente. ¿Te gustaría que te redirija al formulario para solicitar un presupuesto personalizado?').then(() => {
-                    setQuickButtons([
-                        { label: 'Formulario', onClick: () => { pushUser('Formulario'); pushBot('Abriendo el formulario de publicidad...'); go(LINKS.publicidad); } },
-                        { label: 'Ver otro servicio', onClick: () => handleMoreServices() },
-                        { label: 'Volver a servicios', onClick: () => handleIntent('servicios') }
-                    ]);
-                }); } },
-                { label: 'Tiendas E-commerce', onClick: () => { pushUser('Tiendas E-commerce'); pushBot('🛒 **Tiendas E-commerce**\n\nEs el desarrollo de tiendas online completas con sistema de pagos. Incluye:\n\n• Catálogo de productos con fotos\n• Carrito de compras y checkout\n• Integración con pasarelas de pago\n• Panel de administración de productos\n• Sistema de envíos y tracking\n\nIdeal para empresas que quieren vender sus productos online 24/7. ¿Te gustaría que te redirija al formulario para solicitar un presupuesto personalizado?').then(() => {
-                    setQuickButtons([
-                        { label: 'Formulario', onClick: () => { pushUser('Formulario'); pushBot('Abriendo el formulario de desarrollo web...'); go(LINKS.web); } },
-                        { label: 'Ver otro servicio', onClick: () => handleMoreServices() },
-                        { label: 'Volver a servicios', onClick: () => handleIntent('servicios') }
-                    ]);
-                }); } },
-                { label: 'SEO y Posicionamiento', onClick: () => { pushUser('SEO y Posicionamiento'); pushBot('🔍 **SEO y Posicionamiento Web**\n\nEs la optimización de tu sitio web para aparecer en los primeros resultados de Google. Incluye:\n\n• Análisis de palabras clave\n• Optimización on-page y técnica\n• Creación de contenido SEO friendly\n• Link building y estrategia de backlinks\n• Monitoreo de rankings y analytics\n\nPerfecto para empresas que quieren aumentar su visibilidad orgánica y atraer tráfico calificado. ¿Te gustaría que te redirija al formulario para solicitar un presupuesto personalizado?').then(() => {
-                    setQuickButtons([
-                        { label: 'Formulario', onClick: () => { pushUser('Formulario'); pushBot('Abriendo el formulario de desarrollo web...'); go(LINKS.web); } },
-                        { label: 'Ver otro servicio', onClick: () => handleMoreServices() },
-                        { label: 'Volver a servicios', onClick: () => handleIntent('servicios') }
-                    ]);
-                }); } },
-                { label: 'Análisis Predictivo', onClick: () => { pushUser('Análisis Predictivo'); pushBot('📈 **Análisis Predictivo**\n\nEs el uso de algoritmos de machine learning para predecir tendencias y comportamientos. Incluye:\n\n• Modelos predictivos personalizados\n• Análisis de patrones de comportamiento\n• Forecasting de ventas y demanda\n• Identificación de oportunidades de mercado\n• Dashboard con predicciones en tiempo real\n\nIdeal para empresas que quieren anticipar tendencias y tomar decisiones proactivas basadas en datos. ¿Te gustaría que te redirija al formulario para solicitar un presupuesto personalizado?').then(() => {
-                    setQuickButtons([
-                        { label: 'Formulario', onClick: () => { pushUser('Formulario'); pushBot('Abriendo el formulario de ciencia de datos...'); go(LINKS.datos); } },
-                        { label: 'Ver otro servicio', onClick: () => handleMoreServices() },
-                        { label: 'Volver a servicios', onClick: () => handleIntent('servicios') }
-                    ]);
-                }); } },
-                { label: 'Volver a servicios', onClick: () => handleIntent('servicios') }
+                { label: '📄 Completar formulario', onClick: () => handleIntent('precios') },
+                { label: '💬 Hablar por WhatsApp', onClick: () => handleIntent('contacto') },
+                { label: '🔙 Otra consulta', onClick: () => showMainMenu() }
+            ]);
+        });
+    }
+
+    function showSpecificService(title, description, formLink) {
+        pushUser(title);
+        pushBot(description).then(() => {
+            setQuickButtons([
+                { label: '📄 Ir al formulario', onClick: () => { pushUser('📄 Ir al formulario'); go(formLink); } },
+                { label: '🔄 Ver otro servicio', onClick: () => handleIntent('todos_servicios') },
+                { label: '🔙 Volver', onClick: () => handleIntent('servicios') }
+            ]);
+        });
+    }
+
+    function showPriceFlow(serviceName, formLink, message) {
+        pushUser(serviceName);
+        pushBot(message).then(() => {
+            setQuickButtons([
+                { label: '📄 Ir al formulario', onClick: () => { pushUser('📄 Ir al formulario'); go(formLink); } },
+                { label: '💬 Hablar con experto', onClick: () => handleIntent('contacto') },
+                { label: '🔙 Volver', onClick: () => handleIntent('precios') }
             ]);
         });
     }
 
     function handleIntent(intent) {
         if (intent === 'servicios') {
-            pushUser('Servicios que ofrecen');
-            pushBot('Te cuento nuestros tres servicios principales:\n\n📢 **Publicidad y Redes:**\n• Gestión de Redes Sociales\n• Publicidad en Meta Ads (Facebook/Instagram)\n• Google Ads Performance\n• Email Marketing\n• Content Marketing\n• Branding y Diseño\n\n💻 **Desarrollo Web:**\n• Sitios Web Corporativos\n• Tiendas E-commerce\n• Aplicaciones Web\n• SEO y Optimización\n• Mantenimiento Web\n• Desarrollo de Landing Pages\n\n📊 **Datos:**\n• Análisis de Datos\n• Dashboards y KPIs\n• Business Intelligence\n• Automatización de Procesos\n• Machine Learning\n• Análisis Predictivo\n\n¿Cuál de estos servicios te interesa conocer en detalle?').then(() => {
+            pushUser('🚀 Ver servicios');
+            pushBot('En Loyca trabajamos con tres áreas principales para ayudar a marcas y negocios a crecer con estrategia, creatividad y datos.\n\n¿Qué servicio te interesa conocer?').then(() => {
                 setQuickButtons([
-                    { label: 'Gestión de Redes Sociales', onClick: () => { pushUser('Gestión de Redes Sociales'); pushBot('📱 **Gestión de Redes Sociales**\n\nEs el servicio completo de administración y optimización de tus perfiles sociales. Incluye:\n\n• Creación y programación de contenido\n• Gestión de community management\n• Monitoreo de métricas y analytics\n• Interacción con tu comunidad\n• Estrategias de crecimiento\n\nIdeal para empresas que quieren mantener presencia activa en redes sin dedicar tiempo interno. ¿Te gustaría que te redirija al formulario para solicitar un presupuesto personalizado?').then(() => {
-                        setQuickButtons([
-                            { label: 'Formulario', onClick: () => { pushUser('Formulario'); pushBot('Abriendo el formulario de publicidad y redes sociales...'); go(LINKS.publicidad); } },
-                            { label: 'Prefiero hablar por WhatsApp', onClick: () => handleIntent('contacto') },
-                            { label: 'Volver', onClick: () => handleIntent('servicios') }
-                        ]);
-                    }); } },
-                    { label: 'Sitios Web Corporativos', onClick: () => { pushUser('Sitios Web Corporativos'); pushBot('💻 **Sitios Web Corporativos**\n\nEs el desarrollo de páginas web profesionales para empresas. Incluye:\n\n• Diseño web moderno y responsive\n• Optimización para móviles y tablets\n• SEO básico para mejor posicionamiento\n• Integración con redes sociales\n• Panel de administración fácil\n\nPerfecto para empresas que necesitan una presencia digital profesional y confiable. ¿Te gustaría que te redirija al formulario para solicitar un presupuesto personalizado?').then(() => {
-                        setQuickButtons([
-                            { label: 'Formulario', onClick: () => { pushUser('Formulario'); pushBot('Abriendo el formulario de desarrollo web...'); go(LINKS.web); } },
-                            { label: 'Prefiero hablar por WhatsApp', onClick: () => handleIntent('contacto') },
-                            { label: 'Volver', onClick: () => handleIntent('servicios') }
-                        ]);
-                    }); } },
-                    { label: 'Análisis de Datos', onClick: () => { pushUser('Análisis de Datos'); pushBot('📊 **Análisis de Datos**\n\nEs el servicio de procesamiento y análisis de información para extraer insights valiosos. Incluye:\n\n• Recolección y limpieza de datos\n• Análisis estadístico descriptivo\n• Identificación de patrones y tendencias\n• Elaboración de informes ejecutivos\n• Recomendaciones basadas en datos\n\nIdeal para empresas que quieren entender mejor su negocio y tomar decisiones informadas. ¿Te gustaría que te redirija al formulario para solicitar un presupuesto personalizado?').then(() => {
-                        setQuickButtons([
-                            { label: 'Formulario', onClick: () => { pushUser('Formulario'); pushBot('Abriendo el formulario de ciencia de datos...'); go(LINKS.datos); } },
-                            { label: 'Prefiero hablar por WhatsApp', onClick: () => handleIntent('contacto') },
-                            { label: 'Volver', onClick: () => handleIntent('servicios') }
-                        ]);
-                    }); } },
-                    { label: 'Ver todos los servicios', onClick: () => handleMoreServices() },
-                    { label: 'Volver al menú', onClick: () => showMainMenu() }
+                    { label: '📣 Publicidad y Redes', onClick: () => handleIntent('publicidad') },
+                    { label: '🌐 Desarrollo Web', onClick: () => handleIntent('web') },
+                    { label: '📊 Datos y Análisis', onClick: () => handleIntent('datos') },
+                    { label: '📦 Ver todos los servicios', onClick: () => handleIntent('todos_servicios') },
+                    { label: '🔙 Volver al menú', onClick: () => showMainMenu() }
+                ]);
+            });
+            return;
+        }
+
+        if (intent === 'publicidad') {
+            pushUser('📣 Publicidad y Redes');
+            pushBot('En Publicidad y Redes ayudamos a que tu marca gane visibilidad, conecte con su audiencia y convierta mejor.\n\nIncluye servicios como:\n- Gestión de redes sociales\n- Publicidad en Meta Ads\n- Google Ads\n- Estrategia de contenidos\n- Branding y creatividad\n- Optimización de campañas\n\nAdemás, contamos con experiencia práctica y formación certificada para trabajar campañas con enfoque profesional y medible.\n\nSi querés avanzar, podés completar el formulario o hablar con una persona por WhatsApp.').then(() => {
+                setQuickButtons([
+                    { label: '📄 Ir al formulario', onClick: () => { pushUser('📄 Ir al formulario'); go(LINKS.publicidad); } },
+                    { label: '💬 Hablar por WhatsApp', onClick: () => handleIntent('contacto') },
+                    { label: '🔙 Volver', onClick: () => handleIntent('servicios') }
+                ]);
+            });
+            return;
+        }
+
+        if (intent === 'web') {
+            pushUser('🌐 Desarrollo Web');
+            pushBot('En Desarrollo Web creamos sitios modernos, funcionales y pensados para comunicar mejor tu propuesta y ayudarte a convertir visitas en consultas o ventas.\n\nPodemos ayudarte con:\n- Sitios institucionales\n- Landing pages\n- Webs corporativas\n- Tiendas online\n- Optimización para celulares\n- Mejoras de experiencia y estructura\n\nSi querés avanzar, podés completar el formulario o hablar con una persona por WhatsApp.').then(() => {
+                setQuickButtons([
+                    { label: '📄 Ir al formulario', onClick: () => { pushUser('📄 Ir al formulario'); go(LINKS.web); } },
+                    { label: '💬 Hablar por WhatsApp', onClick: () => handleIntent('contacto') },
+                    { label: '🔙 Volver', onClick: () => handleIntent('servicios') }
+                ]);
+            });
+            return;
+        }
+
+        if (intent === 'datos') {
+            pushUser('📊 Datos y Análisis');
+            pushBot('En Datos y Análisis trabajamos para transformar información en decisiones estratégicas.\n\nPodemos ayudarte con:\n- Análisis de datos\n- Dashboards y KPIs\n- Reportes ejecutivos\n- Automatización de procesos\n- Proyecciones y análisis predictivo\n- Optimización basada en datos\n\nSi querés avanzar, podés completar el formulario o hablar con una persona por WhatsApp.').then(() => {
+                setQuickButtons([
+                    { label: '📄 Ir al formulario', onClick: () => { pushUser('📄 Ir al formulario'); go(LINKS.datos); } },
+                    { label: '💬 Hablar por WhatsApp', onClick: () => handleIntent('contacto') },
+                    { label: '🔙 Volver', onClick: () => handleIntent('servicios') }
+                ]);
+            });
+            return;
+        }
+
+        if (intent === 'todos_servicios') {
+            pushUser('📦 Ver todos los servicios');
+            pushBot('Además de nuestras tres áreas principales, también trabajamos con servicios específicos según la necesidad de cada proyecto.\n\nElegí el que te interese:').then(() => {
+                setQuickButtons([
+                    { label: 'Meta Ads', onClick: () => showSpecificService('Meta Ads', 'Meta Ads es ideal para promocionar tu marca, producto o servicio en Facebook e Instagram con campañas segmentadas y orientadas a resultados.\n\nPodemos ayudarte con estrategia, segmentación, creatividad, optimización y análisis de rendimiento.', LINKS.publicidad) },
+                    { label: 'E-commerce', onClick: () => showSpecificService('E-commerce', 'E-commerce es ideal si querés vender online con una tienda funcional, clara y preparada para acompañar el crecimiento de tu negocio.\n\nPodemos ayudarte con catálogo, estructura, pagos, experiencia de usuario y optimización comercial.', LINKS.web) },
+                    { label: 'SEO', onClick: () => showSpecificService('SEO', 'SEO es ideal si querés mejorar la visibilidad de tu sitio en buscadores y atraer tráfico más calificado.\n\nPodemos ayudarte con estructura, contenidos, optimización técnica y estrategia de posicionamiento.', LINKS.web) },
+                    { label: 'Análisis Predictivo', onClick: () => showSpecificService('Análisis Predictivo', 'El análisis predictivo permite anticipar comportamientos, detectar patrones y tomar decisiones con mayor fundamento.\n\nPodemos ayudarte a aplicar análisis y modelos que conviertan datos en proyecciones útiles para el negocio.', LINKS.datos) },
+                    { label: 'Otros', onClick: () => showSpecificService('Otros', 'También trabajamos con otras soluciones vinculadas a estrategia digital, automatización, optimización, presencia online y proyectos a medida.\n\nSi querés, podés contarnos tu necesidad y te orientamos.', LINKS.publicidad) },
+                    { label: '🔙 Volver', onClick: () => handleIntent('servicios') }
                 ]);
             });
             return;
         }
 
         if (intent === 'rubros') {
-            pushUser('Rubros con los que trabajan');
-            pushBot('Trabajamos con marcas y negocios que quieren crecer con estrategia y datos. Algunos rubros con los que tenemos experiencia: Salud, Gastronomía, Retail, Servicios profesionales, Educación, Turismo. ¿De qué rubro es tu negocio?').then(() => {
+            pushUser('🧠 ¿Trabajan con mi rubro?');
+            pushBot('Trabajamos con marcas y negocios que quieren crecer con estrategia y datos.\n\nTenemos experiencia en rubros como:\n- Salud\n- Gastronomía\n- Retail\n- Servicios profesionales\n- Educación\n- Turismo\n\n¿De qué rubro es tu negocio?').then(() => {
                 setQuickButtons([
-                    { label: 'Salud', onClick: () => { pushUser('Salud'); pushBot('Entendido. Si querés avanzar, podés completar el formulario o hablar con una persona por WhatsApp.'); } },
-                    { label: 'Gastronomía', onClick: () => { pushUser('Gastronomía'); pushBot('Perfecto. Si querés avanzar, podés completar el formulario o hablar con una persona por WhatsApp.'); } },
-                    { label: 'Retail', onClick: () => { pushUser('Retail'); pushBot('Excelente. Si querés avanzar, podés completar el formulario o hablar con una persona por WhatsApp.'); } },
-                    { label: 'Servicios Profesionales', onClick: () => { pushUser('Servicios Profesionales'); pushBot('Muy bien. Si querés avanzar, podés completar el formulario o hablar con una persona por WhatsApp.'); } },
-                    { label: 'Volver', onClick: () => showMainMenu() }
+                    { label: 'Salud', onClick: () => { pushUser('Salud'); showObjectiveOptions('Salud'); } },
+                    { label: 'Gastronomía', onClick: () => { pushUser('Gastronomía'); showObjectiveOptions('Gastronomía'); } },
+                    { label: 'Retail', onClick: () => { pushUser('Retail'); showObjectiveOptions('Retail'); } },
+                    { label: 'Servicios Profesionales', onClick: () => { pushUser('Servicios Profesionales'); showObjectiveOptions('Servicios Profesionales'); } },
+                    { label: 'Educación', onClick: () => { pushUser('Educación'); showObjectiveOptions('Educación'); } },
+                    { label: 'Turismo', onClick: () => { pushUser('Turismo'); showObjectiveOptions('Turismo'); } },
+                    { label: 'Otro', onClick: () => { pushUser('Otro'); pushBot('Perfecto. Aunque no esté dentro de los rubros listados, podemos orientarte igual.\n\nContame cuál es el principal objetivo o necesidad que querés resolver.').then(() => {
+                        showObjectiveButtons();
+                    }); } },
+                    { label: '🔙 Volver', onClick: () => showMainMenu() }
                 ]);
             });
             return;
         }
 
         if (intent === 'precios') {
-            pushUser('Precios de presupuestos');
-            pushBot('El precio depende de lo que necesites y del alcance del proyecto. Para poder cotizarte correctamente, primero completá el formulario del servicio que te interesa y con esa información te enviamos el presupuesto.').then(() => {
+            pushUser('💰 Consultar precios');
+            pushBot('Los precios dependen del alcance, la complejidad y el tipo de servicio que necesites.\n\nPara orientarte mejor, elegí el área sobre la que querés consultar:').then(() => {
                 setQuickButtons([
-                    { label: 'Formulario Publicidad y Marketing', onClick: () => { pushUser('Formulario Publicidad y Marketing'); pushBot('Te redirijo al formulario de publicidad y marketing...'); } },
-                    { label: 'Formulario Desarrollo Web', onClick: () => { pushUser('Formulario Desarrollo Web'); pushBot('Te redirijo al formulario de desarrollo web...'); } },
-                    { label: 'Formulario Ciencia de Datos', onClick: () => { pushUser('Formulario Ciencia de Datos'); pushBot('Te redirijo al formulario de ciencia de datos...'); } },
-                    { label: 'Hablar con un experto', onClick: () => handleIntent('contacto') },
-                    { label: 'Volver al menú', onClick: () => showMainMenu() }
+                    { label: '📄 Publicidad y Marketing', onClick: () => showPriceFlow('📄 Publicidad y Marketing', LINKS.publicidad, 'En Publicidad y Marketing el presupuesto depende de factores como objetivos, cantidad de campañas, canales, piezas creativas y nivel de seguimiento.\n\nSi querés una cotización realista, lo mejor es que completes el formulario.') },
+                    { label: '📄 Desarrollo Web', onClick: () => showPriceFlow('📄 Desarrollo Web', LINKS.web, 'En Desarrollo Web el presupuesto depende del tipo de sitio, funcionalidades, cantidad de secciones, integraciones y objetivos del proyecto.\n\nSi querés una cotización realista, lo mejor es que completes el formulario.') },
+                    { label: '📄 Ciencia de Datos', onClick: () => showPriceFlow('📄 Ciencia de Datos', LINKS.datos, 'En Ciencia de Datos el presupuesto depende del tipo de análisis, cantidad de datos, complejidad técnica, automatizaciones y resultados esperados.\n\nSi querés una cotización realista, lo mejor es que completes el formulario.') },
+                    { label: '🔙 Volver', onClick: () => showMainMenu() }
+                ]);
+            });
+            return;
+        }
+
+        if (intent === 'equipo') {
+            pushUser('👥 Conocer al equipo');
+            pushBot('En Loyca trabajamos integrando estrategia, creatividad, desarrollo y análisis para ayudar a negocios a crecer de forma más clara, profesional y medible.\n\nSomos un equipo enfocado en combinar marketing, desarrollo web y datos para crear soluciones que no solo se vean bien, sino que también generen resultados.\n\nSi querés, podés ver nuestros servicios, solicitar un presupuesto o hablar directamente con una persona del equipo.').then(() => {
+                setQuickButtons([
+                    { label: '🚀 Ver servicios', onClick: () => handleIntent('servicios') },
+                    { label: '📄 Solicitar presupuesto', onClick: () => handleIntent('precios') },
+                    { label: '💬 Hablar con el equipo', onClick: () => handleIntent('contacto') },
+                    { label: '🔙 Volver', onClick: () => showMainMenu() }
                 ]);
             });
             return;
         }
 
         if (intent === 'contacto') {
-            pushUser('Quiero hablar con una persona');
-            pushBot('Te paso a WhatsApp para que hables con una persona de nuestro equipo.');
+            pushUser('💬 Hablar con una persona');
+            pushBot('Perfecto. Te paso a WhatsApp para que hables con una persona de nuestro equipo.');
             window.open(WHATSAPP, '_blank');
             return;
         }
 
-        pushBot('Podés elegir una opción del menú o escribirme tu consulta.').then(() => {
-            showMainMenu();
+        fallbackCount += 1;
+        const fallbackMessage = fallbackCount === 1
+            ? 'No entendí del todo tu consulta, pero puedo ayudarte si elegís una opción del menú o me contás un poco más.'
+            : 'Como todavía estoy aprendiendo, te pido disculpas si no entendí bien. Te recomiendo volver al menú para elegir una opción y así poder ayudarte mejor.';
+
+        pushBot(fallbackMessage).then(() => {
+            setQuickButtons([
+                { label: '🔙 Volver al menú', onClick: () => showMainMenu() },
+                { label: '✍️ Escribir consulta', onClick: () => input.focus() }
+            ]);
         });
+    }
+
+    function routeText(text) {
+        const t = (text || '')
+            .toLowerCase()
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .trim();
+
+        if (!t) return;
+
+        if (t.includes('servicio') || t.includes('marketing') || t.includes('publicidad') || t.includes('web') || t.includes('datos')) {
+            handleIntent('servicios');
+            return;
+        }
+
+        if (t.includes('rubro') || t.includes('industria') || t.includes('sector')) {
+            handleIntent('rubros');
+            return;
+        }
+
+        if (t.includes('precio') || t.includes('costo') || t.includes('presupuesto')) {
+            handleIntent('precios');
+            return;
+        }
+
+        if (t.includes('equipo') || t.includes('quienes son') || t.includes('empresa')) {
+            handleIntent('equipo');
+            return;
+        }
+
+        if (t.includes('whatsapp') || t.includes('persona') || t.includes('hablar') || t.includes('contacto')) {
+            handleIntent('contacto');
+            return;
+        }
+
+        handleIntent('fallback');
     }
 
     // Event listeners
@@ -257,11 +383,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!text) return;
         pushUser(text);
         input.value = '';
-        
+
         setTimeout(() => {
-            pushBot('Recibí tu mensaje. Para ayudarte mejor, elegí una opción del menú o contactanos por WhatsApp.');
-            showMainMenu();
-        }, 1000);
+            routeText(text);
+        }, 300);
     });
 
     // Add scroll event listener for quick buttons area
@@ -280,7 +405,7 @@ document.addEventListener('DOMContentLoaded', function() {
         messages.scrollTop = messages.scrollHeight;
         showMainMenu();
     } else {
-        pushBot('¡Hola! Soy Loyca. ¿En qué te puedo ayudar?').then(() => {
+        pushBot('¡Hola! Soy el asistente virtual de Loyca.\nEstoy para ayudarte a encontrar el servicio ideal para tu negocio.\n\nPodés elegir una de estas opciones:').then(() => {
             showMainMenu();
         });
     }
