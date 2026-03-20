@@ -3203,10 +3203,102 @@ body.dark-mode .packs-carousel.style--coverflow .pack-card.is-active {
     font-weight: 600;
 }
 
- .loyca-chatbot {
-     position: fixed !important;
-     right: 22px !important;
-     bottom: 22px !important;
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.75), 0 0 18px rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    opacity: 0;
+    animation: bgParticleFloat 10s linear infinite;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 8s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 1s; animation-duration: 12s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 2s; animation-duration: 10s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 3s; animation-duration: 15s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 4s; animation-duration: 9s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 11s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 6s; animation-duration: 13s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 7s; animation-duration: 14s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 8s; animation-duration: 16s; }
+.particle:nth-child(10) { left: 95%; animation-delay: 9s; animation-duration: 7s; }
+
+.scroll-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.scroll-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.75), 0 0 16px rgba(255, 255, 255, 0.3);
+    opacity: 0;
+}
+
+.scroll-particle.active {
+    animation: scrollParticleFloat 3s ease-out forwards;
+}
+
+@keyframes bgParticleFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(10vh) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+}
+
+@keyframes scrollParticleFloat {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-120px) scale(0.4);
+    }
+}
+
+.loyca-chatbot {
+    position: fixed !important;
+    right: 22px !important;
+    bottom: 22px !important;
+    z-index: 9998 !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.chatbot-fab {
      z-index: 9998 !important;
      font-family: 'Poppins', sans-serif !important;
  }

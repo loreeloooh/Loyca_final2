@@ -71,9 +71,53 @@ function initInteractiveServices() {
     });
 }
 
+function initScrollParticles() {
+    const scrollParticles = document.getElementById('scrollParticles');
+    if (!scrollParticles) return;
+
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'scroll-particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        scrollParticles.appendChild(particle);
+    }
+
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const particles = document.querySelectorAll('.scroll-particle');
+
+        if (scrollTop > lastScrollTop) {
+            particles.forEach((particle) => {
+                if (Math.random() > 0.95) {
+                    particle.classList.add('active');
+                    setTimeout(() => {
+                        particle.classList.remove('active');
+                    }, 3000);
+                }
+            });
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+    const particles = document.querySelectorAll('.scroll-particle');
+    particles.forEach((particle, index) => {
+        setTimeout(() => {
+            particle.classList.add('active');
+            setTimeout(() => {
+                particle.classList.remove('active');
+            }, 3000);
+        }, index * 100);
+    });
+}
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     initInteractiveServices();
+    initScrollParticles();
 });
 
 // Theme Toggle
