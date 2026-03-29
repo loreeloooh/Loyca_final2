@@ -231,28 +231,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Animación de números flotantes para predicciones
-document.addEventListener('DOMContentLoaded', function() {
-    const predictionValues = document.querySelectorAll('.prediction-value');
-    
-    predictionValues.forEach(value => {
-        const originalValue = value.textContent;
-        
-        setInterval(() => {
-            // Pequeña variación para simular datos en tiempo real
-            const variation = (Math.random() - 0.5) * 0.1;
-            const currentValue = parseFloat(originalValue.replace(/[^0-9.]/g, ''));
-            const newValue = currentValue * (1 + variation);
-            
-            if (originalValue.includes('$')) {
-                value.textContent = '$' + newValue.toLocaleString('en-US', { maximumFractionDigits: 0 });
-            } else if (originalValue.includes('%')) {
-                value.textContent = newValue.toFixed(1) + '%';
-            }
-        }, 5000);
-    });
-});
-
 // Efecto de partículas sutiles para el dashboard
 function createDashboardParticles() {
     const dashboardSection = document.querySelector('.dashboard-section');

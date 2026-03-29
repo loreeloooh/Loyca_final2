@@ -223,25 +223,25 @@
                                     <!-- Etiqueta del indicador -->
                                     <div class="bar-label">Desvíos Financieros</div>
                                     <!-- Valor o resultado destacado -->
-                                    <div class="bar-value">Hasta $89K/mes recuperables</div>
+                                    <div class="bar-value">Oportunidades de orden y seguimiento</div>
                                 </div>
                                 <!-- Barra 2: indicador operativo -->
                                 <div class="bar-item" data-value="45">
                                     <div class="bar-fill" style="height: 0%; background: linear-gradient(135deg, #b4b9ad, #d4d4c8);"></div>
                                     <div class="bar-label">Margen de Error Operativo</div>
-                                    <div class="bar-value">Hasta 45% menos incidencia</div>
+                                    <div class="bar-value">Espacio para estandarizar procesos</div>
                                 </div>
                                 <!-- Barra 3: indicador de optimización -->
                                 <div class="bar-item" data-value="92">
                                     <div class="bar-fill" style="height: 0%; background: linear-gradient(135deg, #e45b7a, #f4a8b8);"></div>
                                     <div class="bar-label">Procesos por Optimizar</div>
-                                    <div class="bar-value">Hasta 92% con mejora potencial</div>
+                                    <div class="bar-value">Procesos con potencial de mejora</div>
                                 </div>
                                 <!-- Barra 4: indicador de control de riesgo -->
                                 <div class="bar-item" data-value="78">
                                     <div class="bar-fill" style="height: 0%; background: linear-gradient(135deg, #4a90e2, #87ceeb);"></div>
                                     <div class="bar-label">Puntos de Riesgo</div>
-                                    <div class="bar-value">78% con posibilidad de mayor control</div>
+                                    <div class="bar-value">Áreas para fortalecer el control</div>
                                 </div>
                             </div>
                         </div>
@@ -340,36 +340,16 @@
                         </div>
                     </div>
 
-                    <div class="widget-card" data-widget="predictions">
+                    <div class="widget-card" data-widget="quality">
                         <div class="widget-header">
-                            <h3>Oportunidades Identificadas</h3>
+                            <h3>Calidad y Precisión</h3>
                             <div class="widget-status active"></div>
                         </div>
                         <div class="widget-content">
-                            <div class="prediction-list">
-                                <div class="prediction-item">
-                                    <div class="prediction-icon">⚡</div>
-                                    <div class="prediction-text">
-                                        <div class="prediction-title">Eficiencia Operativa</div>
-                                        <div class="prediction-value">67% potencial de mejora</div>
-                                    </div>
-                                    <div class="prediction-confidence">Basado en benchmarks</div>
-                                </div>
-                                <div class="prediction-item">
-                                    <div class="prediction-icon">📊</div>
-                                    <div class="prediction-text">
-                                        <div class="prediction-title">Calidad de Procesos</div>
-                                        <div class="prediction-value">92% optimizable</div>
-                                    </div>
-                                    <div class="prediction-confidence">Análisis comparativo</div>
-                                </div>
-                                <div class="prediction-item">
-                                    <div class="prediction-icon">📈</div>
-                                    <div class="prediction-text">
-                                        <div class="prediction-title">Optimización de Rutas</div>
-                                        <div class="prediction-value">45% más eficiente</div>
-                                    </div>
-                                    <div class="prediction-confidence">Modelo predictivo</div>
+                            <div class="quality-metrics">
+                                <div class="quality-item">
+                                    <span class="metric-label">Precisión del Modelo</span>
+                                    <span class="metric-value" style="color: #22c55e;">+++</span>
                                 </div>
                             </div>
                         </div>
@@ -474,6 +454,13 @@
                                 <textarea id="step5_measures" name="step5_measures" rows="3" placeholder="Ej: % de crecimiento mensual, costo de adquisición por cliente, tiempo de respuesta..." required></textarea>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="consent-section">
+                        <label for="kpi_data_consent" class="consent-label">
+                            <input type="checkbox" id="kpi_data_consent" name="kpi_data_consent" required>
+                            <span>Acepto que mis datos sean tratados y resguardados conforme a la Ley de Protección de Datos Personales N° 25.326 en Argentina, con consentimiento previo, finalidad específica, seguridad y confidencialidad.</span>
+                        </label>
                     </div>
 
                     <div class="form-actions">
@@ -617,7 +604,10 @@
                 let isValid = true;
                 
                 requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
+                    const isChoiceField = field.type === 'checkbox' || field.type === 'radio';
+                    const fieldValid = isChoiceField ? field.checked : field.value.trim();
+
+                    if (!fieldValid) {
                         isValid = false;
                         field.classList.add('error');
                     } else {

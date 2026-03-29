@@ -746,6 +746,13 @@
                         </div>
                     </div>
 
+                    <div class="consent-section">
+                        <label for="sm_data_consent" class="consent-label">
+                            <input type="checkbox" id="sm_data_consent" name="sm_data_consent" required>
+                            <span>Acepto que mis datos sean tratados y resguardados conforme a la Ley de Protección de Datos Personales N° 25.326 en Argentina, con consentimiento previo, finalidad específica, seguridad y confidencialidad.</span>
+                        </label>
+                    </div>
+
                     <div class="form-actions">
                         <button type="submit" class="btn-primary">
                             <span class="btn-text">Enviar Solicitud de Estrategia</span>
@@ -914,7 +921,10 @@
             let isValid = true;
                 
                 requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
+                    const isChoiceField = field.type === 'checkbox' || field.type === 'radio';
+                    const fieldValid = isChoiceField ? field.checked : field.value.trim();
+
+                    if (!fieldValid) {
                         isValid = false;
                         field.classList.add('error');
                     } else {
