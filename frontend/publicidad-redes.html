@@ -303,7 +303,6 @@
                         </div>
                         <div class="form-group">
                             <label for="sm_location">¿En qué ciudad o país operas principalmente? *</label>
-                            <label for="sm_location">¿En qué ciudad o país operas principalmente? *</label>
                             <input type="text" id="sm_location" name="sm_location" placeholder="Ej: Buenos Aires, Argentina" required>
                         </div>
                         <div class="form-group">
@@ -994,57 +993,76 @@
                 otherObjectiveInput.style.display = this.checked ? 'block' : 'none';
             });
 
-            socialMediaForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Validación básica
-            const requiredFields = socialMediaForm.querySelectorAll('[required]');
-            let isValid = true;
-                
-                requiredFields.forEach(field => {
-                    const isChoiceField = field.type === 'checkbox' || field.type === 'radio';
-                    const fieldValid = isChoiceField ? field.checked : field.value.trim();
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-                    if (!fieldValid) {
+                let isValid = true;
+
+                const requiredTextFields = form.querySelectorAll('input[required]:not([type="radio"]):not([type="checkbox"]), textarea[required], select[required]');
+                requiredTextFields.forEach(field => {
+                    if (!field.value.trim()) {
                         isValid = false;
                         field.classList.add('error');
                     } else {
                         field.classList.remove('error');
                     }
                 });
-                
+
+                const requiredRadioNames = [...new Set(
+                    Array.from(form.querySelectorAll('input[type="radio"][required]')).map(field => field.name)
+                )];
+
+                requiredRadioNames.forEach(name => {
+                    const checked = form.querySelector(`input[name="${name}"]:checked`);
+                    const radios = form.querySelectorAll(`input[name="${name}"]`);
+
+                    radios.forEach(radio => radio.classList.remove('error'));
+
+                    if (!checked) {
+                        isValid = false;
+                        radios.forEach(radio => radio.classList.add('error'));
+                    }
+                });
+
+                const requiredCheckboxes = form.querySelectorAll('input[type="checkbox"][required]');
+                requiredCheckboxes.forEach(field => {
+                    if (!field.checked) {
+                        isValid = false;
+                        field.classList.add('error');
+                    } else {
+                        field.classList.remove('error');
+                    }
+                });
+
                 if (!isValid) {
                     showStatus('Por favor completa todos los campos requeridos', 'error');
                     return;
                 }
-                
-                // Mostrar estado de carga
+
                 submitBtn.disabled = true;
                 btnText.style.display = 'none';
                 btnLoader.style.display = 'inline';
                 showStatus('Enviando tu solicitud...', 'loading');
-                
-                // Recopilar datos de checkboxes
+
                 const platforms = Array.from(document.querySelectorAll('input[name="sm_platforms"]:checked'))
                     .map(cb => cb.value)
                     .filter(val => val !== 'Otras');
-                
+
                 if (otherPlatformsCheckbox.checked && otherPlatformsInput.value.trim()) {
                     platforms.push(otherPlatformsInput.value.trim());
                 }
-                
+
                 const objectives = Array.from(document.querySelectorAll('input[name="sm_objectives"]:checked'))
                     .map(cb => cb.value)
                     .filter(val => val !== 'Otro');
-                
+
                 if (otherObjectiveCheckbox.checked && otherObjectiveInput.value.trim()) {
                     objectives.push(otherObjectiveInput.value.trim());
                 }
-                
+
                 const contentTypes = Array.from(document.querySelectorAll('input[name="sm_content_types"]:checked'))
                     .map(cb => cb.value);
-                
-                // Preparar datos para EmailJS
+
                 const templateParams = {
                     name: document.getElementById('sm_name').value,
                     email: document.getElementById('sm_email').value,
@@ -1075,43 +1093,39 @@
                     alt_promo_details: document.getElementById('sm_alt_promo_details').value,
                     competitors: document.getElementById('sm_competitors').value,
                     additional: document.getElementById('sm_additional').value,
-                    time: new Date().toLocaleString('es-AR', { 
+                    time: new Date().toLocaleString('es-AR', {
                         timeZone: 'America/Argentina/Buenos_Aires',
                         dateStyle: 'full',
                         timeStyle: 'short'
                     })
                 };
-                
-                // Enviar con EmailJS (usando mismo service pero podrías crear uno nuevo)
-            emailjs.send('service_dztv8jg', 'template_z48evio', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    showStatus('¡Solicitud enviada con éxito! Te contactaremos en las próximas 48 horas.', 'success');
-                    socialMediaForm.reset();
-                        
-                        // Resetear secciones condicionales
+
+                emailjs.send('service_dztv8jg', 'template_z48evio', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        showStatus('¡Solicitud enviada con éxito! Te contactaremos en las próximas 48 horas.', 'success');
+                        form.reset();
+
                         socialPlatformsSection.style.display = 'none';
                         adsBudgetSection.style.display = 'none';
                         logoOptionsSection.style.display = 'none';
                         websiteDomainSection.style.display = 'none';
                         otherPlatformsInput.style.display = 'none';
                         otherObjectiveInput.style.display = 'none';
-                        
-                        // Resetear botón después de 3 segundos
-                    setTimeout(() => {
-                        submitBtn.disabled = false;
-                        btnText.style.display = 'inline';
+
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            btnText.style.display = 'inline';
                             btnLoader.style.display = 'none';
                         }, 3000);
                     })
                     .catch(function(error) {
-                    console.log('FAILED...', error);
-                    showStatus('Error al enviar. Por favor intenta nuevamente o contacta directamente a info@loyca.com', 'error');
-                    
-                    // Resetear botón
-                    submitBtn.disabled = false;
-                    btnText.style.display = 'inline';
-                    btnLoader.style.display = 'none';
+                        console.log('FAILED...', error);
+                        showStatus('Error al enviar. Por favor intenta nuevamente o contacta directamente a info@loyca.com', 'error');
+
+                        submitBtn.disabled = false;
+                        btnText.style.display = 'inline';
+                        btnLoader.style.display = 'none';
                     });
             });
             
@@ -1139,6 +1153,10 @@
             // Remover clase error al escribir
             form.querySelectorAll('input, textarea').forEach(field => {
                 field.addEventListener('input', function() {
+                    this.classList.remove('error');
+                });
+
+                field.addEventListener('change', function() {
                     this.classList.remove('error');
                 });
             });
