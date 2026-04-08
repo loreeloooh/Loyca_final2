@@ -326,6 +326,10 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="sm_business_details">Cuéntanos sobre tu rubro, servicio, productos o ambos *</label>
+                            <textarea id="sm_business_details" name="sm_business_details" rows="4" placeholder="Describe tu rubro y qué servicio, producto o propuesta ofreces..." required></textarea>
+                        </div>
                     </div>
 
                     <!-- Branding / Rebranding -->
@@ -668,6 +672,26 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label>¿Necesitas alguien que filme y cree contenido o lo crean ustedes? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_content_production" value="Necesito que filmen y creen el contenido" required>
+                                    <span class="radio-custom"></span>
+                                    Necesito que filmen y creen el contenido
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_content_production" value="Nosotros creamos el contenido" required>
+                                    <span class="radio-custom"></span>
+                                    Nosotros creamos el contenido
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_content_production" value="Parte la creamos nosotros y parte necesitamos ayuda" required>
+                                    <span class="radio-custom"></span>
+                                    Parte la creamos nosotros y parte necesitamos ayuda
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Publicidad en redes -->
@@ -695,6 +719,29 @@
                         </div>
                         
                         <div class="conditional-section" id="adsBudgetSection">
+                            <div class="form-group">
+                                <label>¿En qué plataforma te interesa invertir? *</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_ads_platform" value="Meta Ads">
+                                        <span class="radio-custom"></span>
+                                        Meta Ads
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_ads_platform" value="Google Ads">
+                                        <span class="radio-custom"></span>
+                                        Google Ads
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="sm_ads_platform" value="Ambos">
+                                        <span class="radio-custom"></span>
+                                        Ambos
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="social-form-intro">Cada plataforma y cada empresa pueden requerir montos mínimos de inversión diferentes. Te orientaremos según tu objetivo, rubro y presupuesto disponible.</p>
+                            </div>
                             <div class="form-group">
                                 <label>Si la respuesta es sí, ¿cuánto te gustaría invertir aproximadamente por mes?</label>
                                 <div class="radio-group">
@@ -725,6 +772,40 @@
                                     </label>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Publicidad complementaria -->
+                    <div class="form-section">
+                        <h3>📺 Publicidad Complementaria</h3>
+                        <div class="form-group">
+                            <label>¿Te interesa explorar publicidad en televisión, con influencers o ambas? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_alt_promo_interest" value="Televisión" required>
+                                    <span class="radio-custom"></span>
+                                    Televisión
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_alt_promo_interest" value="Influencers" required>
+                                    <span class="radio-custom"></span>
+                                    Influencers
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_alt_promo_interest" value="Ambos" required>
+                                    <span class="radio-custom"></span>
+                                    Ambos
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="sm_alt_promo_interest" value="No por el momento" required>
+                                    <span class="radio-custom"></span>
+                                    No por el momento
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sm_alt_promo_details">Si te interesa, cuéntanos brevemente qué tipo de acción te gustaría evaluar</label>
+                            <textarea id="sm_alt_promo_details" name="sm_alt_promo_details" rows="3" placeholder="Ej: pauta en TV local, colaboraciones con influencers del rubro, campañas mixtas, etc."></textarea>
                         </div>
                     </div>
 
@@ -972,6 +1053,7 @@
                     activity: document.getElementById('sm_activity').value,
                     location: document.getElementById('sm_location').value,
                     business_type: document.querySelector('input[name="sm_business_type"]:checked').value,
+                    business_details: document.getElementById('sm_business_details').value,
                     has_name: document.querySelector('input[name="sm_has_name"]:checked').value,
                     current_name: document.getElementById('sm_current_name').value,
                     has_logo: document.querySelector('input[name="sm_has_logo"]:checked').value,
@@ -985,8 +1067,12 @@
                     social_links: document.getElementById('sm_social_links').value,
                     objectives: objectives.join(', ') || 'Ninguno',
                     content_types: contentTypes.join(', ') || 'Ninguno',
+                    content_production: document.querySelector('input[name="sm_content_production"]:checked').value,
                     ads_interest: document.querySelector('input[name="sm_ads_interest"]:checked').value,
+                    ads_platform: document.querySelector('input[name="sm_ads_platform"]:checked')?.value || 'No aplica',
                     ads_budget: document.querySelector('input[name="sm_ads_budget"]:checked')?.value || 'No aplica',
+                    alt_promo_interest: document.querySelector('input[name="sm_alt_promo_interest"]:checked').value,
+                    alt_promo_details: document.getElementById('sm_alt_promo_details').value,
                     competitors: document.getElementById('sm_competitors').value,
                     additional: document.getElementById('sm_additional').value,
                     time: new Date().toLocaleString('es-AR', { 
